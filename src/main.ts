@@ -1,4 +1,3 @@
-
 import {Client, ClientOptions, Collection} from "eris";
 import {default as fs} from "fs"
 import {Logger} from "./logger"
@@ -6,14 +5,14 @@ import {command} from "./Command";
 const config = require('../config.json'); 
 
 export class Jerry extends Client {
-    logger: Logger
+    logger: Logger;
     canSwimInRain = false;
-    bevents: {[key: string]: () => void}
-    commands: Collection<command>
+    bevents: {[key: string]: () => void};
+    commands: Collection<command>;
+    defaultColor = 14460415;
     constructor(token: string, options: ClientOptions) {
         super(token, options);
         this.logger = new Logger()
-
         //DO NOT TOUCH
         //this makes events work
         this.bevents = {};
@@ -23,8 +22,12 @@ export class Jerry extends Client {
     init(): void {
         fs.readFile(`${__dirname}/jerry.txt`, "utf8", function(err, data) {
             console.log(data)
+            jerry.logger.success('Jerry', 'Commands loaded')
+            jerry.logger.success('Jerry', 'Events loaded')
+
         })
         this.loadEvents()
+        this.loadCommands()
         this.connect();
     }
 
@@ -70,23 +73,22 @@ export class Jerry extends Client {
         this.removeAllListeners(eventname);
         this.loadEvent(eventname.charAt(0).toUpperCase() + eventname.slice(1));
     }
-
-    load = () => {
-        fs.readdir("./commands/", (err, files) => {
-            
+        
+    private loadCommands(){
+        fs.readdir(`${__dirname}/commands/`, (err, files) => {
             files.forEach((file, index) => {
                 
-                const filepath = "./commands/" + file;
+                const filepath = `${__dirname}/commands/` + file;
                 console.log(filepath);
                 const cmd = require(filepath);
                 const newCmd = new cmd.cmd();
                 jerry.commands.add(newCmd);
-
             });
 
-            return jerry.logger.success('Jerry', 'Commands Loaded!')
+            
         });
     }
 }
+
 const jerry = new Jerry(config.token, {});
 jerry.init(); 

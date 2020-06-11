@@ -1,6 +1,7 @@
 import {Jerry} from "../main";
 import {Message, Member, TextChannel} from "eris";
 import {command} from "../Command";
+import {ICommandContext} from "../types";
 const config = require('../../config.json'); 
 const prefix = 'jerry pls '
 const devPrefix = 'goodboy.'
@@ -11,9 +12,8 @@ class MessageCreateHandler{
     }
 
     async handle(this: Jerry, msg: Message): Promise<void> {
-        console.log(`Jerry saw a message and it said: ${msg.content}!`);
 
-        const randomNumGenerator = Math.round(Math.random() * 20)
+        const randomNumGenerator = Math.round(Math.random() * 100)
         if(randomNumGenerator === 9 || randomNumGenerator === 10){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
         handleCommand(msg, this);
     }
@@ -100,7 +100,7 @@ async function _commandHandler(msg: Message, label: string, args: Array<string>,
     }
 
     //@ts-ignore
-    await command.execute(msg, args, jerry, false).catch((err: Error) => {
+    await command.execute(jerry, ctx, false).catch((err: Error) => {
         jerry.logger.error("Jerry Error", ` command error from message ${msg.content}`);
     });
     
@@ -128,7 +128,7 @@ async function _devCommandHandler(msg: Message, label: string, args: Array<strin
         return;
     }
     //@ts-ignore
-    await command.execute(msg, args, jerry, true).catch((err: Error) => {
+    await command.execute(jerry, ctx, true).catch((err: Error) => {
         jerry.logger.error("Jerry Error", `command error from message ${msg.content}`);
         jerry.logger.error("Jerry Error", `${err}`);
     });
@@ -155,7 +155,8 @@ async function handleCommand(msg: Message, jerry: Jerry){
 
     if(result[0] === "normal"){
         //@ts-ignore
-        return await _commandHandler(msg, result[1], result[2], jerry);
+        let out = await _commandHandler(msg, result[1], result[2], jerry);
+        return;
     }
 
     return "no command";
@@ -176,9 +177,9 @@ async function _prefixHandle(msg: Message, jerry: Jerry){
 
     //test for a guild's normal prefix
     if(msg.content.startsWith(prefix)){
-        const args = msg.content.split(" ").slice(2);
+        const args = msg.content.split(" ").slice(3);
         const cmdLabelar = msg.content.split(" ").slice(2, 3);
-        const label = cmdLabelar[0].slice(prefix.length).toLowerCase();
+        const label = cmdLabelar[0].trim().toLowerCase();
         return ["normal", label, args];
     }
 

@@ -12,18 +12,7 @@ class Jerry extends eris_1.Client {
     constructor(token, options) {
         super(token, options);
         this.canSwimInRain = false;
-        this.load = () => {
-            fs_1.default.readdir("./commands/", (err, files) => {
-                files.forEach((file, index) => {
-                    const filepath = "./commands/" + file;
-                    console.log(filepath);
-                    const cmd = require(filepath);
-                    const newCmd = new cmd.cmd();
-                    jerry.commands.add(newCmd);
-                });
-                return jerry.logger.success('Jerry', 'Commands Loaded!');
-            });
-        };
+        this.defaultColor = 14460415;
         this.logger = new logger_1.Logger();
         //DO NOT TOUCH
         //this makes events work
@@ -33,8 +22,11 @@ class Jerry extends eris_1.Client {
     init() {
         fs_1.default.readFile(`${__dirname}/jerry.txt`, "utf8", function (err, data) {
             console.log(data);
+            jerry.logger.success('Jerry', 'Commands loaded');
+            jerry.logger.success('Jerry', 'Events loaded');
         });
         this.loadEvents();
+        this.loadCommands();
         this.connect();
     }
     peck(target, times) {
@@ -78,6 +70,17 @@ class Jerry extends eris_1.Client {
         delete require.cache[require.resolve(`${__dirname}/Events/${eventname.charAt(0).toUpperCase() + eventname.slice(1)}.js`)];
         this.removeAllListeners(eventname);
         this.loadEvent(eventname.charAt(0).toUpperCase() + eventname.slice(1));
+    }
+    loadCommands() {
+        fs_1.default.readdir(`${__dirname}/commands/`, (err, files) => {
+            files.forEach((file, index) => {
+                const filepath = `${__dirname}/commands/` + file;
+                console.log(filepath);
+                const cmd = require(filepath);
+                const newCmd = new cmd.cmd();
+                jerry.commands.add(newCmd);
+            });
+        });
     }
 }
 exports.Jerry = Jerry;

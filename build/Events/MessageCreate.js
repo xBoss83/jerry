@@ -8,8 +8,7 @@ class MessageCreateHandler {
         this.name = "messageCreate";
     }
     async handle(msg) {
-        console.log(`Jerry saw a message and it said: ${msg.content}!`);
-        const randomNumGenerator = Math.round(Math.random() * 20);
+        const randomNumGenerator = Math.round(Math.random() * 100);
         if (randomNumGenerator === 9 || randomNumGenerator === 10) {
             msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`);
         }
@@ -81,7 +80,7 @@ async function _commandHandler(msg, label, args, jerry) {
         }
     }
     //@ts-ignore
-    await command.execute(msg, args, jerry, false).catch((err) => {
+    await command.execute(jerry, ctx, false).catch((err) => {
         jerry.logger.error("Jerry Error", ` command error from message ${msg.content}`);
     });
     //signale.error(`[Hyperion] command error on guild ${msg.channel.guild.id} from message ${msg.content}`);
@@ -102,7 +101,7 @@ async function _devCommandHandler(msg, label, args, jerry) {
         return;
     }
     //@ts-ignore
-    await command.execute(msg, args, jerry, true).catch((err) => {
+    await command.execute(jerry, ctx, true).catch((err) => {
         jerry.logger.error("Jerry Error", `command error from message ${msg.content}`);
         jerry.logger.error("Jerry Error", `${err}`);
     });
@@ -125,7 +124,8 @@ async function handleCommand(msg, jerry) {
     }
     if (result[0] === "normal") {
         //@ts-ignore
-        return await _commandHandler(msg, result[1], result[2], jerry);
+        let out = await _commandHandler(msg, result[1], result[2], jerry);
+        return;
     }
     return "no command";
 }
@@ -140,9 +140,9 @@ async function _prefixHandle(msg, jerry) {
     }
     //test for a guild's normal prefix
     if (msg.content.startsWith(prefix)) {
-        const args = msg.content.split(" ").slice(2);
+        const args = msg.content.split(" ").slice(3);
         const cmdLabelar = msg.content.split(" ").slice(2, 3);
-        const label = cmdLabelar[0].slice(prefix.length).toLowerCase();
+        const label = cmdLabelar[0].trim().toLowerCase();
         return ["normal", label, args];
     }
     //test for mention prefix

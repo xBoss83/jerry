@@ -17,7 +17,8 @@ class command {
         this.helpInfo = data.helpInfo || "someone waz lazy";
         this.commandType = data.commandType || "default";
     }
-    async execute(msg, args, jerry, dev) {
+    async execute(jerry, ctx) {
+        return "Unimplemented";
     }
 }
 exports.command = command;

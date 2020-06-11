@@ -1,5 +1,6 @@
-import {Message} from "eris";
+import {Message, TextableChannel} from "eris";
 import {Jerry} from "./main";
+import {ICommandContext} from "./types";
 export class command {
     name: string;
     id: string;
@@ -32,8 +33,8 @@ export class command {
 
         this.commandType = data.commandType || "default";
     }
-    async execute (msg: MessageChannel, args: Array<string>, jerry: Jerry, dev: boolean){
-
+    async execute (jerry: Jerry, ctx: ICommandContext): Promise<unknown>{
+        return "Unimplemented"
     }
 
 }

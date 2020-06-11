@@ -21,6 +21,7 @@
     "@types/signale": "^1.4.1",
     "eris": "^0.13.1",
     "signale": "^1.4.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "util": "^0.12.3"
   }
 }
