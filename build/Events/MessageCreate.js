@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const config = require('../../config.json');
-const prefix = 'jerry pls ';
-const devPrefix = 'goodboy.';
 class MessageCreateHandler {
     constructor() {
         this.name = "messageCreate";
@@ -132,14 +130,14 @@ async function handleCommand(msg, jerry) {
 //detect and isolate normal prefix and args
 async function _prefixHandle(msg, jerry) {
     //test for dev prefix and authorized user
-    if ((config.owners.includes(msg.author.id)) && (msg.content.startsWith(devPrefix))) {
+    if ((config.owners.includes(msg.author.id)) && (msg.content.startsWith(config.devPrefix))) {
         const args = msg.content.split(" ").slice(1);
         const cmdLabelar = msg.content.split(" ").slice(0, 1);
-        const label = cmdLabelar[0].slice(devPrefix.length).toLowerCase();
+        const label = cmdLabelar[0].slice(config.devPrefix.length).toLowerCase();
         return ["dev", label, args];
     }
     //test for a guild's normal prefix
-    if (msg.content.startsWith(prefix)) {
+    if (msg.content.startsWith(config.prefix)) {
         const args = msg.content.split(" ").slice(3);
         const cmdLabelar = msg.content.split(" ").slice(2, 3);
         const label = cmdLabelar[0].trim().toLowerCase();
