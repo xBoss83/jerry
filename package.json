@@ -1,0 +1,22 @@
+{
+  "name": "jerry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Boss-Discord2/jerry.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Boss-Discord2/jerry/issues"
+  },
+  "homepage": "https://github.com/Boss-Discord2/jerry#readme",
+  "dependencies": {
+    "eris": "^0.13.1"
+  }
+}
