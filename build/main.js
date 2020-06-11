@@ -72,9 +72,9 @@ class Jerry extends eris_1.Client {
         this.loadEvent(eventname.charAt(0).toUpperCase() + eventname.slice(1));
     }
     loadCommands() {
-        fs_1.default.readdir(`${__dirname}/commands/`, (err, files) => {
+        fs_1.default.readdir(`${__dirname}/Commands/`, (err, files) => {
             files.forEach((file, index) => {
-                const filepath = `${__dirname}/commands/` + file;
+                const filepath = `${__dirname}/Commands/` + file;
                 console.log(filepath);
                 const cmd = require(filepath);
                 const newCmd = new cmd.cmd();

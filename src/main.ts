@@ -75,10 +75,10 @@ export class Jerry extends Client {
     }
         
     private loadCommands(){
-        fs.readdir(`${__dirname}/commands/`, (err, files) => {
+        fs.readdir(`${__dirname}/Commands/`, (err, files) => {
             files.forEach((file, index) => {
                 
-                const filepath = `${__dirname}/commands/` + file;
+                const filepath = `${__dirname}/Commands/` + file;
                 console.log(filepath);
                 const cmd = require(filepath);
                 const newCmd = new cmd.cmd();
