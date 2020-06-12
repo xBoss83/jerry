@@ -15,7 +15,7 @@ exports.jerrys = [
     "https://cdn.discordapp.com/attachments/697676542830182431/721054658356838440/maxresdefault.png",
     "https://cdn.discordapp.com/attachments/697676542830182431/721054736702374048/giphy.png"
 ];
-class JerryCmd extends Command_1.command {
+class JerryPic extends Command_1.command {
     constructor() {
         super({});
         this.name = "jerrypic";
@@ -42,4 +42,4 @@ class JerryCmd extends Command_1.command {
         return ctx.channel.createMessage(data);
     }
 }
-module.exports.cmd = JerryCmd;
+module.exports.cmd = JerryPic;

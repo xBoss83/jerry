@@ -4,7 +4,7 @@ const Command_1 = require("../Command");
 const child_process_1 = require("child_process");
 const util_1 = require("util");
 const config = require("../../config.json");
-class JerryCmd extends Command_1.command {
+class Exec extends Command_1.command {
     constructor() {
         super({});
         this.name = "exec";
@@ -32,4 +32,4 @@ class JerryCmd extends Command_1.command {
         });
     }
 }
-module.exports.cmd = JerryCmd;
+module.exports.cmd = Exec;
