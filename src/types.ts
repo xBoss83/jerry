@@ -1,4 +1,4 @@
-import {Client, Collection, Guild, Message, TextChannel, Embed, Member, User, Role, GuildTextableChannel, VoiceChannel, CategoryChannel, ClientOptions} from "eris";
+import {Client, Collection, Guild, Message, GuildChannel, Embed, Member, User, Role, GuildTextableChannel, VoiceChannel, CategoryChannel, ClientOptions, TextChannel} from "eris";
 
 export interface ICommandContext{
     msg: Message;
@@ -8,5 +8,5 @@ export interface ICommandContext{
     user: User;
     content: string;
     args: Array<string>;
-    dev: boolean;
+    dev: boolean; 
 }

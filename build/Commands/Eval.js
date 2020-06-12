@@ -50,7 +50,7 @@ class Eval extends Command_1.command {
                     timestamp: new Date
                 }
             };
-            return jerry.createMessage(ctx.msg.channel.id, `\`\`\`js\n${stringoutput}\`\`\``);
+            return jerry.createMessage(ctx.msg.channel.id, data);
         }).catch(err => {
             console.error(err);
             err = err.toString();

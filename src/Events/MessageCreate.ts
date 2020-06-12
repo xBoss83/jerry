@@ -12,7 +12,7 @@ class MessageCreateHandler{
 
     async handle(this: Jerry, msg: Message): Promise<void> {
 
-        const randomNumGenerator = Math.round(Math.random() * 100)
+        const randomNumGenerator = Math.round(Math.random() * 50)
         if(randomNumGenerator === 9 || randomNumGenerator === 10){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
         handleCommand(msg, this);
     }
@@ -47,10 +47,10 @@ async function generalHelp(msg: Message, jerry: Jerry){
     })
     const data = {
         embed: {
-            color: 0xe87722,
+            color: 14460415,
             timestamp: new Date(),
-            title: "Commands",
-            description: list.join("\n")
+            title: "Jerry's Commands",
+            description: list.join(", ")
         }
     }
     return await msg.channel.createMessage(data);
@@ -59,8 +59,8 @@ async function generalHelp(msg: Message, jerry: Jerry){
 async function commandHelp(msg: Message, command: command){
     const data = {
         embed: {
-            description: command.helpInfo,
-            color: 0xe87722,
+            description: `**Description:** ${command.helpInfo}\n**Aliases:** ${command.aliases.join(', ')}\n**Enabled:** ${command.alwaysEnabled}\n**Command Type:** ${command.commandType}`,
+            color: 14460415,
             timestamp: new Date(),
             title: `Help for ${command.name}`
         }
@@ -97,6 +97,17 @@ async function _commandHandler(msg: Message, label: string, args: Array<string>,
             return "unauthorized: not a required user";
         }
     }
+    if(!(msg.channel.type === 5 || msg.channel.type === 0)){return;}
+    const ctx: ICommandContext = {
+        msg: msg,
+        channel: msg.channel,
+        guild: msg.channel.guild,
+        member: msg.member!,
+        user: msg.author,
+        content: msg.content,
+        args: args,
+        dev: false
+    }
 
     //@ts-ignore
     await command.execute(jerry, ctx, false).catch((err: Error) => {
@@ -125,6 +136,17 @@ async function _devCommandHandler(msg: Message, label: string, args: Array<strin
     const command = findCommand(label, jerry);
     if(!command){
         return;
+    }
+    if(!(msg.channel.type === 5 || msg.channel.type === 0)){return;}
+    const ctx: ICommandContext = {
+        msg: msg,
+        channel: msg.channel,
+        guild: msg.channel.guild,
+        member: msg.member!,
+        user: msg.author,
+        content: msg.content,
+        args: args,
+        dev: true
     }
     //@ts-ignore
     await command.execute(jerry, ctx, true).catch((err: Error) => {
