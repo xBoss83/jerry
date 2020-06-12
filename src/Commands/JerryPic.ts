@@ -17,7 +17,7 @@ export const jerrys = [
     "https://cdn.discordapp.com/attachments/697676542830182431/721054736702374048/giphy.png"
 ]; 
 
-class JerryCmd extends command {
+class JerryPic extends command {
     constructor() {
         super({})
         this.name = "jerrypic"
@@ -47,4 +47,4 @@ class JerryCmd extends command {
         return ctx.channel.createMessage(data); 
     }
 }
-module.exports.cmd = JerryCmd; 
+module.exports.cmd = JerryPic; 

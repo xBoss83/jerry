@@ -5,7 +5,7 @@ import {exec} from "child_process";
 import {inspect} from "util"; 
 const config = require("../../config.json");
 
-class JerryCmd extends command {
+class Exec extends command {
     constructor() {
         super({})
         this.name = "exec"
@@ -33,4 +33,4 @@ class JerryCmd extends command {
         });
     }
 }
-module.exports.cmd = JerryCmd; 
+module.exports.cmd = Exec; 
