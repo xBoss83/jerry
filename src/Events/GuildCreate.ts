@@ -9,9 +9,9 @@ class GuildCreateHandler {
         this.name = "guildCreate";
     }
 
-    async handle(this: Jerry, ctx: ICommandContext): Promise<void> {
-    
-        this.executeWebhook('722188833986314312', config.guildWebhook, { 
+    async handle(this: Jerry, guild: Guild): Promise<void> {
+        let owner = this.users.get(guild.ownerID)
+        this.executeWebhook('722188833986314312', config, { 
     
             embeds: [
              {
@@ -21,7 +21,7 @@ class GuildCreateHandler {
                 }, 
                 color: this.defaultColor,
                 //@ts-ignore
-                description: `Added to a new guild!\n**Guild:** ${ctx.guild.name} (\`${ctx.guild.id})\`\n**Members:** ${ctx.guild.members.size}\n**Guilds:** ${this.guilds.size}`,
+                description: `Added to a new guild!\n**Guild:** ${guild.name} (\`${guild.id})\`\n**Owner:** ${owner.username}#${owner.discriminator}\n**Members:** ${guild.members.size}\n**Guilds:** ${this.guilds.size}`,
                 timestamp: new Date 
     
               }

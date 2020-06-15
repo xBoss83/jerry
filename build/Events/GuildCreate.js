@@ -5,8 +5,9 @@ class GuildCreateHandler {
     constructor() {
         this.name = "guildCreate";
     }
-    async handle(ctx) {
-        this.executeWebhook('722188833986314312', config.guildWebhook, {
+    async handle(guild) {
+        let owner = this.users.get(guild.ownerID);
+        this.executeWebhook('722188833986314312', config, {
             embeds: [
                 {
                     author: {
@@ -15,7 +16,7 @@ class GuildCreateHandler {
                     },
                     color: this.defaultColor,
                     //@ts-ignore
-                    description: `Added to a new guild!\n**Guild:** ${ctx.guild.name} (\`${ctx.guild.id})\`\n**Members:** ${ctx.guild.members.size}\n**Guilds:** ${this.guilds.size}`,
+                    description: `Added to a new guild!\n**Guild:** ${guild.name} (\`${guild.id})\`\n**Owner:** ${owner.username}#${owner.discriminator}\n**Members:** ${guild.members.size}\n**Guilds:** ${this.guilds.size}`,
                     timestamp: new Date
                 }
             ]
