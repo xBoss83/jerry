@@ -8,7 +8,8 @@ const eris_1 = require("eris");
 const fs_1 = __importDefault(require("fs"));
 const logger_1 = require("./logger");
 const Command_1 = require("./Command");
-const config = require('../config.json');
+const axios_1 = __importDefault(require("axios"));
+const config = require("../config.json");
 class Jerry extends eris_1.Client {
     constructor(token, options) {
         super(token, options);
@@ -38,6 +39,18 @@ class Jerry extends eris_1.Client {
             return console.log(`You fed jerry ${count} Allys!`);
         }
         return "Jerry is a good boy!";
+    }
+    async postDBL() {
+        await axios_1.default.post(`https://top.gg/api/bots/${jerry.user.id}/stats`, {
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            server_count: this.guilds.size,
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            shard_count: this.shards.size
+        }, {
+            headers: {
+                Authorization: config.dblToken
+            }
+        });
     }
     get weiner() {
         return "Jerry has a tiny weiner!";

@@ -2,7 +2,8 @@ import {Client, ClientOptions, Collection} from "eris";
 import {default as fs} from "fs"
 import {Logger} from "./logger"
 import {command} from "./Command";
-const config = require('../config.json'); 
+import {default as axios} from "axios"; 
+const config = require("../config.json"); 
 
 export class Jerry extends Client {
     logger: Logger;
@@ -38,6 +39,19 @@ export class Jerry extends Client {
     feedJerry(count: number, goodboy?: boolean): any { 
         if(!goodboy){return console.log(`You fed jerry ${count} Allys!`)}
         return "Jerry is a good boy!"
+    }
+   async postDBL(): Promise<any> { 
+        await axios.post(`https://top.gg/api/bots/${jerry.user.id}/stats`,{
+                // eslint-disable-next-line @typescript-eslint/camelcase
+                server_count: this.guilds.size,
+                // eslint-disable-next-line @typescript-eslint/camelcase
+                shard_count: this.shards.size
+            },
+            {
+                headers: {
+                    Authorization: config.dblToken
+                }
+            });
     }
 
     private get weiner(): string {
