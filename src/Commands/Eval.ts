@@ -31,39 +31,36 @@ class Eval extends command {
         const lyss = 'Hottie'
         const twodog = 'qt'
         if(!config.owners.includes(ctx.msg.author.id)) return jerry.logger.error('Jerry Eval', `Some idiot is trying to use my eval command, their tag is ${ctx.msg.author.username}#${ctx.msg.author.discriminator}!`); 
-            const content = ctx.args[0];
-            if (!content) return jerry.createMessage(ctx.msg.channel.id, `Silly, ${ctx.msg.author.mention}, I cannot eval the air!`)
-            const result = new Promise((resolve, reject) => resolve(eval(content)));
-
-        return result.then(output => { 
-            if(typeof output !== 'string') output = require('util').inspect(output, { 
-                depth: 0
-            });
-            let stringoutput = output as string;
-            if (stringoutput.includes(jerry.token!)) output = stringoutput.replace(jerry.token!, "NoUQ4Nzk4NoUM3NTY5NjA1NjUy.DxNoYOU3w.B9F3nQm6xJJ4NoUfK60ZWduRbNoU"); 
-            if (stringoutput.length > 1990) console.log(output), output = 'The result of this eval is over 2000 characters long and cannot be sent, check the console for the output.'
-
-            const data = { 
+        const code = ctx.args[0]; 
+        let evaled = await eval(code);
+        if (typeof evaled !== "string")
+            evaled = inspect(evaled, {depth: 0});
+        if(evaled.includes("token") || evaled.includes(config.token)){
+            evaled = evaled.replace("Fuck You");
+            evaled = evaled.replace(config.token, "Fuck You");
+        }
+        if (evaled.length > 1900) {
+            console.log(evaled);
+            ctx.channel.createMessage("Output is too long. Logged to the console.");
+        }
+        else {
+            const data = {
                 embed: {
-                    author: { 
-                        name: "Eval Results", 
-                        icon_url: ctx.msg.author.avatarURL
-                    }, 
-                    description: "```js\n" + output + "```",
-                    color: jerry.defaultColor,
-                    timestamp: new Date
+                     author: { name: 'Eval Results', icon_url: ctx.user.avatarURL },
+                     description: "```js\n" + evaled + "```",
+                     color: jerry.defaultColor,
+                     timestamp: new Date(),
                 }
-            }
-            return jerry.createMessage(ctx.msg.channel.id, data); 
-            }).catch(err => { 
-                console.error(err); 
-                err = err.toString(); 
-
-                if (err.includes(jerry.token)) err = err.replace(jerry.token, "NoUQ4Nzk4NoUM3NTY5NjA1NjUy.DxNoYOU3w.B9F3nQm6xJJ4NoUfK60ZWduRbNoU"); 
-
-                return jerry.createMessage(ctx.msg.channel.id, `\`\`\`js\n${err}\`\`\``); 
-            });
-}
+           }
+            //relay.createMessage(msg.channel.id, clean(evaled));
+            ctx.channel.createMessage(data);
+        }
+    }
+    //@ts-ignore
+    catch (err) {
+        //@ts-ignore
+        ctx.channel.createMessage(`\`ERROR\` \`\`\`xl\n${code}\n\`\`\``);
+    }
 }
 
 exports.cmd = Eval;
