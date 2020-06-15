@@ -4,7 +4,7 @@ import {ICommandContext}  from "../types";
 import {exec} from "child_process"; 
 const config = require("../../config.json");
 
-class Restart extends command {
+class Uptime extends command {
     constructor() {
         super({})
         this.name = "post"
@@ -38,4 +38,4 @@ class Restart extends command {
         ctx.channel.createMessage(data)
     }
 }
-module.exports.cmd = Restart;
+module.exports.cmd = Uptime;

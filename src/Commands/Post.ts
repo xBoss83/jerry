@@ -4,7 +4,7 @@ import {ICommandContext}  from "../types";
 import {exec} from "child_process"; 
 const config = require("../../config.json");
 
-class Restart extends command {
+class Post extends command {
     constructor() {
         super({})
         this.name = "post"
@@ -24,4 +24,4 @@ class Restart extends command {
     }
 }
 
-module.exports.cmd = Restart; 
+module.exports.cmd = Post; 
