@@ -9,11 +9,15 @@ class MessageCreateHandler{
     constructor(){
         this.name = "messageCreate";
     }
-
+    
     async handle(this: Jerry, msg: Message): Promise<void> {
 
         const randomNumGenerator = Math.round(Math.random() * 50)
-        if(randomNumGenerator === 9 || randomNumGenerator === 10){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
+        let canPeck = true;
+        const blacklistPeck = ["264445053596991498"];
+        //@ts-ignore
+        if(blacklistPeck.includes(msg.channel.guild.id)){canPeck = false;}
+        if((randomNumGenerator === 9 || randomNumGenerator === 10) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
         handleCommand(msg, this);
     }
 }
