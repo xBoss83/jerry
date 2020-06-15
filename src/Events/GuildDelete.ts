@@ -17,12 +17,12 @@ class GuildCreateHandler {
             embeds: [
              {
                 author: { 
-                    name: 'Guild Create', 
+                    name: 'Guild Delete', 
                     icon_url: this.user.avatarURL
                 }, 
                 color: this.defaultColor,
                 //@ts-ignore
-                description: `Added to a new guild!\n**Guild:** ${guild.name} (\`${guild.id})\`\n**Owner:** ${owner.username}#${owner.discriminator}\n**Members:** ${guild.members.size}\n**Guilds:** ${this.guilds.size}`,
+                description: `Removed from a guild!\n**Guild:** ${guild.name} (\`${guild.id})\`\n**Owner:** ${owner.username}#${owner.discriminator}\n**Members:** ${guild.members.size}\n**Guilds:** ${this.guilds.size}`,
                 timestamp: new Date 
     
               }
