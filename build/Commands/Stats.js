@@ -25,6 +25,9 @@ class Stats extends Command_1.command {
                     name: jerry.user.username,
                     icon_url: jerry.user.avatarURL
                 },
+                thumbnail: {
+                    url: "https://www.thebalancesmb.com/thmb/k9ICOwcotxqA2PZtznT2GUDf1CE=/1280x960/smart/filters:no_upscale()/linux-573e3f5f5f9b58723dace939.jpg"
+                },
                 color: jerry.defaultColor,
                 footer: {
                     text: `Uptime: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`,
@@ -64,7 +67,7 @@ class Stats extends Command_1.command {
                     },
                     {
                         name: 'Operating System',
-                        value: `Linux - Debian 4.19.98-1`,
+                        value: `Linux`,
                         inline: true
                     },
                     {
