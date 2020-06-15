@@ -21,7 +21,7 @@ class ReadyHandler {
                 }, 
                 color: this.defaultColor,
                 //@ts-ignore
-                description: `Connected to Discord!\n**Guilds:** ${callisto.guilds.size}\n**Users:** ${this.users.size}\n**Time:** ${logDate} (${logTime})`,
+                description: `Connected to Discord!\n**Guilds:** ${this.guilds.size}\n**Users:** ${this.users.size}\n**Time:** ${logDate} (${logTime})`,
                 timestamp: new Date 
     
               }

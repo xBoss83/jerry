@@ -106,7 +106,6 @@ export class Jerry extends Client {
 
 const jerry = new Jerry(config.token, {
     autoreconnect: true, 
-    getAllUsers: true,
     messageLimit: 100, 
     restMode: true
 })

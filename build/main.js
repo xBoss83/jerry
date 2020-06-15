@@ -100,7 +100,6 @@ class Jerry extends eris_1.Client {
 exports.Jerry = Jerry;
 const jerry = new Jerry(config.token, {
     autoreconnect: true,
-    getAllUsers: true,
     messageLimit: 100,
     restMode: true
 });
