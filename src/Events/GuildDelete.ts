@@ -12,7 +12,7 @@ class GuildCreateHandler {
     async handle(this: Jerry, guild: Guild): Promise<void> {
         let owner = this.users.get(guild.ownerID)
     
-        this.executeWebhook('722188833986314312', config.guildWebhook, { 
+        this.executeWebhook('722192224745685113', config.guildWebhook, { 
     
             embeds: [
              {
