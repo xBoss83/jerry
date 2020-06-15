@@ -7,7 +7,13 @@ class MessageCreateHandler {
     }
     async handle(msg) {
         const randomNumGenerator = Math.round(Math.random() * 50);
-        if (randomNumGenerator === 9 || randomNumGenerator === 10) {
+        let canPeck = true;
+        const blacklistPeck = ["264445053596991498"];
+        //@ts-ignore
+        if (blacklistPeck.includes(msg.channel.guild.id)) {
+            canPeck = false;
+        }
+        if ((randomNumGenerator === 9 || randomNumGenerator === 10) && canPeck) {
             msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`);
         }
         handleCommand(msg, this);

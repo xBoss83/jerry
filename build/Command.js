@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.command = void 0;
 class command {
     constructor(data) {
         this.name = data.name || "unnamed";

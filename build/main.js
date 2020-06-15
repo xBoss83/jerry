@@ -1,8 +1,9 @@
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
-}
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Jerry = void 0;
 const eris_1 = require("eris");
 const fs_1 = __importDefault(require("fs"));
 const logger_1 = require("./logger");

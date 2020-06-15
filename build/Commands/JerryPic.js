@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.jerrys = void 0;
 const Command_1 = require("../Command");
 exports.jerrys = [
     "https://cdn.discordapp.com/attachments/697676542830182431/721053912689410098/maxresdefault.png",
