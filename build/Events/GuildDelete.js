@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const config = require("../../config.json");
 class GuildCreateHandler {
     constructor() {
-        this.name = "guildCreate";
+        this.name = "guildDelete";
     }
     async handle(guild) {
         let owner = this.users.get(guild.ownerID);

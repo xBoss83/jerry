@@ -6,7 +6,7 @@ const config = require("../../config.json");
 class GuildCreateHandler {
     name: string;
     constructor(){
-        this.name = "guildCreate";
+        this.name = "guildDelete";
     }
 
     async handle(this: Jerry, guild: Guild): Promise<void> {
