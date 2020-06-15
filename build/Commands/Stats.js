@@ -26,7 +26,7 @@ class Stats extends Command_1.command {
                     icon_url: jerry.user.avatarURL
                 },
                 thumbnail: {
-                    url: "https://www.thebalancesmb.com/thmb/k9ICOwcotxqA2PZtznT2GUDf1CE=/1280x960/smart/filters:no_upscale()/linux-573e3f5f5f9b58723dace939.jpg"
+                    url: "https://cdn.discordapp.com/attachments/396848636081733632/722186874495434752/Tux.png"
                 },
                 color: jerry.defaultColor,
                 footer: {
@@ -51,9 +51,8 @@ class Stats extends Command_1.command {
                         inline: true
                     },
                     {
-                        name: 'Developer',
-                        value: 'boss#0001, bean#8888, wuper#9212',
-                        inline: true
+                        name: 'Developers',
+                        value: 'boss#0001, bean#8888, wuper#9212'
                     },
                     {
                         name: 'Servers',
