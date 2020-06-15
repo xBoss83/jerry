@@ -7,13 +7,11 @@ const config = require("../../config.json");
 class Uptime extends command {
     constructor() {
         super({})
-        this.name = "post"
-        this.aliases = ["p"]
+        this.name = "uptime"
+        this.aliases = ["up"]
         this.alwaysEnabled = true;
         this.id = this.name;
-        this.requiredUsers = ["253233185800847361", "344954369285947392", "489989456175300618"]
-        this.helpInfo = "Posts DBL stats for Jerry."
-        this.commandType = "developer"
+        this.helpInfo = "Shows Jerry's uptime."
     }
 
     async execute(jerry: Jerry, ctx: ICommandContext): Promise<any> {

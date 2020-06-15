@@ -53,7 +53,7 @@ class Stats extends command {
                     },
                     { 
                         name: 'Developer', 
-                        value: 'boss#0001', 
+                        value: 'boss#0001, bean#8888, wuper#9212', 
                         inline: true
                     }, 
                     { 
