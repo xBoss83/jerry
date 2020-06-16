@@ -26,7 +26,7 @@ class Eval extends Command_1.command {
         const twodog = 'qt';
         if (!config.owners.includes(ctx.msg.author.id))
             return jerry.logger.error('Jerry Eval', `Some idiot is trying to use my eval command, their tag is ${ctx.msg.author.username}#${ctx.msg.author.discriminator}!`);
-        const code = ctx.args[0];
+        const code = ctx.args.join(" ");
         let evaled = await eval(code);
         if (typeof evaled !== "string")
             evaled = util_1.inspect(evaled, { depth: 0 });
