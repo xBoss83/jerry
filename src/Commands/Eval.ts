@@ -57,11 +57,12 @@ class Eval extends command {
             ctx.channel.createMessage(data);
         }
     }
-    }
+    
     //@ts-ignore
     catch (err) {
         //@ts-ignore
         ctx.channel.createMessage(`\`ERROR\` \`\`\`xl\n${code}\n\`\`\``);
+    }
     }
 }
 
