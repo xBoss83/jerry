@@ -18,7 +18,7 @@ class Restart extends Command_1.command {
         if (!config.owners.includes(ctx.user.id))
             return;
         ctx.channel.createMessage("Restarting Jerry!");
-        child_process_1.exec('pm2 restart Jerry', (error, stdout) => {
+        await child_process_1.exec('pm2 restart Jerry', (error, stdout) => {
         });
     }
 }

@@ -102,7 +102,6 @@ const jerry = new Jerry(config.token, {
     autoreconnect: true,
     messageLimit: 0,
     restMode: true,
-    getAllUsers: false
 });
 jerry.init();
 // hi
