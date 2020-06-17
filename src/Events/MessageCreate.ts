@@ -2,6 +2,7 @@ import {Jerry} from "../main";
 import {Message, Member, TextChannel} from "eris";
 import {command} from "../Command";
 import {ICommandContext} from "../types";
+import { jerrys } from "../Commands/JerryPic";
 const config = require('../../config.json'); 
 
 class MessageCreateHandler{
@@ -11,19 +12,15 @@ class MessageCreateHandler{
     }
     
     async handle(this: Jerry, msg: Message): Promise<void> {
-
-        const randomNumGenerator = Math.round(Math.random() * 50)
+        const randomNumGenerator = Math.round(Math.random() * 100)
         let canPeck = true;
         const blacklistPeck = ["264445053596991498"];
         //@ts-ignore
         if(blacklistPeck.includes(msg.channel.guild.id)){canPeck = false;}
-        if((randomNumGenerator === 9 || randomNumGenerator === 10) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
+        if((randomNumGenerator === 10 || randomNumGenerator === 50) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
         handleCommand(msg, this);
     }
 }
-
-
-
 
 
 //finds the command object specified by the search
@@ -115,7 +112,7 @@ async function _commandHandler(msg: Message, label: string, args: Array<string>,
 
     //@ts-ignore
     await command.execute(jerry, ctx, false).catch((err: Error) => {
-        jerry.logger.error("Jerry Error", ` command error from message ${msg.content}`);
+        jerry.logger.error("Jerry Error", `Command error from message ${msg.content} error: ${err}`);
     });
     
 

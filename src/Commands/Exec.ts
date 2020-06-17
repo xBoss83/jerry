@@ -20,7 +20,7 @@ class Exec extends command {
     async execute(jerry: Jerry, ctx: ICommandContext): Promise<any> {
          if (!config.owners.includes(ctx.user.id)) return 
 
-         exec(ctx.args.join(" "), (error, stdout) => {
+        await exec(ctx.args.join(" "), (error, stdout) => {
             const outputType = error || stdout;
             let output = outputType;
             if (typeof outputType === "object") {

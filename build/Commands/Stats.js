@@ -6,7 +6,7 @@ class Stats extends Command_1.command {
     constructor() {
         super({});
         this.name = "stats";
-        this.aliases = ["info", "bot", "bot-info", "bot-information", "whoisjerry"];
+        this.aliases = ["bot", "bot-info", "bot-information", "whoisjerry"];
         this.alwaysEnabled = true;
         this.id = this.name;
         this.helpInfo = "Gives information on Jerry.";

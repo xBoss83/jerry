@@ -20,41 +20,43 @@ class Eval extends Command_1.command {
         this.helpInfo = "Jerry will eval code for you!";
     }
     async execute(jerry, ctx) {
-        const wuper = 'Super duper wuper | Likes planes';
-        const bean = 'Sally owner | Lima bean';
-        const lyss = 'Hottie';
-        const twodog = 'qt';
-        if (!config.owners.includes(ctx.msg.author.id))
-            return jerry.logger.error('Jerry Eval', `Some idiot is trying to use my eval command, their tag is ${ctx.msg.author.username}#${ctx.msg.author.discriminator}!`);
-        const code = ctx.args.join(" ");
-        let evaled = await eval(code);
-        if (typeof evaled !== "string")
-            evaled = util_1.inspect(evaled, { depth: 0 });
-        if (evaled.includes("token") || evaled.includes(config.token)) {
-            evaled = evaled.replace("Fuck You");
-            evaled = evaled.replace(config.token, "Fuck You");
+        try {
+            const wuper = 'Super duper wuper | Likes planes';
+            const bean = 'Sally owner | Lima bean';
+            const lyss = 'Hottie';
+            const twodog = 'qt';
+            if (!config.owners.includes(ctx.msg.author.id))
+                return jerry.logger.error('Jerry Eval', `Some idiot is trying to use my eval command, their tag is ${ctx.msg.author.username}#${ctx.msg.author.discriminator}!`);
+            const code = ctx.args.join(" ");
+            let evaled = await eval(code);
+            if (typeof evaled !== "string")
+                evaled = util_1.inspect(evaled, { depth: 0 });
+            if (evaled.includes("token") || evaled.includes(config.token)) {
+                evaled = evaled.replace("Fuck You");
+                evaled = evaled.replace(config.token, "Fuck You");
+            }
+            if (evaled.length > 1900) {
+                console.log(evaled);
+                ctx.channel.createMessage("Output is too long. Logged to the console.");
+            }
+            else {
+                const data = {
+                    embed: {
+                        author: { name: 'Eval Results', icon_url: ctx.user.avatarURL },
+                        description: "```js\n" + evaled + "```",
+                        color: jerry.defaultColor,
+                        timestamp: new Date(),
+                    }
+                };
+                //relay.createMessage(msg.channel.id, clean(evaled));
+                ctx.channel.createMessage(data);
+            }
         }
-        if (evaled.length > 1900) {
-            console.log(evaled);
-            ctx.channel.createMessage("Output is too long. Logged to the console.");
-        }
-        else {
-            const data = {
-                embed: {
-                    author: { name: 'Eval Results', icon_url: ctx.user.avatarURL },
-                    description: "```js\n" + evaled + "```",
-                    color: jerry.defaultColor,
-                    timestamp: new Date(),
-                }
-            };
-            //relay.createMessage(msg.channel.id, clean(evaled));
-            ctx.channel.createMessage(data);
-        }
-    }
-    //@ts-ignore
-    catch(err) {
         //@ts-ignore
-        ctx.channel.createMessage(`\`ERROR\` \`\`\`xl\n${code}\n\`\`\``);
+        catch (err) {
+            //@ts-ignore
+            ctx.channel.createMessage(`\`ERROR\` \`\`\`xl\n${code}\n\`\`\``);
+        }
     }
 }
 exports.cmd = Eval;

@@ -7,7 +7,7 @@ class GuildCreateHandler {
     }
     async handle(guild) {
         let owner = this.users.get(guild.ownerID);
-        this.executeWebhook('722192224745685113', config.guildWebhook, {
+        this.executeWebhook('722663743271469067', config.guildWebhook, {
             embeds: [
                 {
                     author: {

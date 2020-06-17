@@ -25,7 +25,8 @@ class Eval extends command {
 
     }
 
-    async execute(jerry: Jerry, ctx: ICommandContext) {     
+    async execute(jerry: Jerry, ctx: ICommandContext) {   
+        try{
         const wuper = 'Super duper wuper | Likes planes'
         const bean = 'Sally owner | Lima bean'
         const lyss = 'Hottie'
@@ -56,12 +57,13 @@ class Eval extends command {
             ctx.channel.createMessage(data);
         }
     }
+    
     //@ts-ignore
     catch (err) {
         //@ts-ignore
         ctx.channel.createMessage(`\`ERROR\` \`\`\`xl\n${code}\n\`\`\``);
     }
+    }
 }
 
 exports.cmd = Eval;
-

@@ -6,14 +6,14 @@ class MessageCreateHandler {
         this.name = "messageCreate";
     }
     async handle(msg) {
-        const randomNumGenerator = Math.round(Math.random() * 50);
+        const randomNumGenerator = Math.round(Math.random() * 100);
         let canPeck = true;
         const blacklistPeck = ["264445053596991498"];
         //@ts-ignore
         if (blacklistPeck.includes(msg.channel.guild.id)) {
             canPeck = false;
         }
-        if ((randomNumGenerator === 9 || randomNumGenerator === 10) && canPeck) {
+        if ((randomNumGenerator === 10 || randomNumGenerator === 50) && canPeck) {
             msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`);
         }
         handleCommand(msg, this);
@@ -98,7 +98,7 @@ async function _commandHandler(msg, label, args, jerry) {
     };
     //@ts-ignore
     await command.execute(jerry, ctx, false).catch((err) => {
-        jerry.logger.error("Jerry Error", ` command error from message ${msg.content}`);
+        jerry.logger.error("Jerry Error", `Command error from message ${msg.content} error: ${err}`);
     });
     //signale.error(`[Hyperion] command error on guild ${msg.channel.guild.id} from message ${msg.content}`);
     //signale.error(err);

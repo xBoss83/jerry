@@ -18,7 +18,7 @@ class Exec extends Command_1.command {
     async execute(jerry, ctx) {
         if (!config.owners.includes(ctx.user.id))
             return;
-        child_process_1.exec(ctx.args.join(" "), (error, stdout) => {
+        await child_process_1.exec(ctx.args.join(" "), (error, stdout) => {
             const outputType = error || stdout;
             let output = outputType;
             if (typeof outputType === "object") {
