@@ -26,4 +26,4 @@ class Restart extends command {
     }
 }
 
-module.exports.cmd = Restart; ``
+module.exports.cmd = Restart; 

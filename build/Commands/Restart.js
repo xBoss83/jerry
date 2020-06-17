@@ -17,10 +17,9 @@ class Restart extends Command_1.command {
     async execute(jerry, ctx) {
         if (!config.owners.includes(ctx.user.id))
             return;
-        child_process_1.exec('pm2 restart 0', (error, stdout) => {
-            return ctx.channel.createMessage("Restarted");
+        child_process_1.exec('pm2 restart Jerry', (error, stdout) => {
+            return ctx.channel.createMessage("Restarting Jerry!");
         });
     }
 }
 module.exports.cmd = Restart;
-``;
