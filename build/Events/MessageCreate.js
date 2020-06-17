@@ -6,14 +6,14 @@ class MessageCreateHandler {
         this.name = "messageCreate";
     }
     async handle(msg) {
-        const randomNumGenerator = Math.round(Math.random() * 100);
+        const randomNumGenerator = Math.round(Math.random() * 200);
         let canPeck = true;
         const blacklistPeck = ["264445053596991498"];
         //@ts-ignore
         if (blacklistPeck.includes(msg.channel.guild.id)) {
             canPeck = false;
         }
-        if ((randomNumGenerator === 10 || randomNumGenerator === 50) && canPeck) {
+        if ((randomNumGenerator === 50 || randomNumGenerator === 100) && canPeck) {
             msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`);
         }
         handleCommand(msg, this);
