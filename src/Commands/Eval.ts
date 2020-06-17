@@ -16,7 +16,7 @@ class Eval extends command {
     constructor() {
         super({}) 
             this.name = "eval"; 
-            this.aliases = ["e", "evaluate"]; 
+            this.aliases = ["e", "evaluate", "runcodefortheboys"]; 
             this.alwaysEnabled = true; 
             this.requiredUsers = ["489989456175300618", "253233185800847361", "344954369285947392"] 
             this.id = this.name; 

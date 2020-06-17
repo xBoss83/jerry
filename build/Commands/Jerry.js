@@ -6,7 +6,7 @@ class JerryCmd extends Command_1.command {
     constructor() {
         super({});
         this.name = "jerry";
-        this.aliases = ["goodboy", "runcodefortheboys"];
+        this.aliases = ["goodboy"];
         this.alwaysEnabled = true;
         this.id = this.name;
         this.helpInfo = "Send some Jerry in your life.";
