@@ -19,9 +19,8 @@ class Restart extends command {
 
     async execute(jerry: Jerry, ctx: ICommandContext): Promise<any> {
          if (!config.owners.includes(ctx.user.id)) return 
-
+        ctx.channel.createMessage("Restarting Jerry!");
          exec('pm2 restart Jerry', (error, stdout) => {
-            return ctx.channel.createMessage("Restarting Jerry!");
         })
     }
 }
