@@ -190,7 +190,7 @@ async function handleCommand(msg: Message, jerry: Jerry){
 async function _prefixHandle(msg: Message, jerry: Jerry){
 
     //test for dev prefix and authorized user
-    if((config.owners.includes(msg.author.id)) && (msg.content.startsWith(config.devPrefix))){
+    if((config.owners.includes(msg.author.id)) && (msg.content.toLowerCase().startsWith(config.devPrefix))){
         const args = msg.content.split(" ").slice(1);
         const cmdLabelar = msg.content.split(" ").slice(0, 1);
         const label = cmdLabelar[0].slice(config.devPrefix.length).toLowerCase();
@@ -198,7 +198,7 @@ async function _prefixHandle(msg: Message, jerry: Jerry){
     }
 
     //test for a guild's normal prefix
-    if(msg.content.startsWith(config.prefix)){
+    if(msg.content.toLowerCase().startsWith(config.prefix)){
         const args = msg.content.split(" ").slice(3);
         const cmdLabelar = msg.content.split(" ").slice(2, 3);
         const label = cmdLabelar[0].trim().toLowerCase();
