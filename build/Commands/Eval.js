@@ -55,7 +55,7 @@ class Eval extends Command_1.command {
         //@ts-ignore
         catch (err) {
             //@ts-ignore
-            ctx.channel.createMessage(`\`ERROR\` \`\`\`xl\n${code}\n\`\`\``);
+            ctx.channel.createMessage(`\`ERROR\` \`\`\`\n${err}\n\`\`\``);
         }
     }
 }
