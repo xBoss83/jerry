@@ -18,7 +18,7 @@ class Eval extends command {
             this.name = "eval"; 
             this.aliases = ["e", "evaluate", "runcodefortheboys"]; 
             this.alwaysEnabled = true; 
-            this.requiredUsers = ["489989456175300618", "253233185800847361", "344954369285947392"] 
+            this.requiredUsers = ["489989456175300618", "253233185800847361", "344954369285947392", "325087287539138560"];
             this.id = this.name; 
             this.commandType = "developer"; 
             this.helpInfo = "Jerry will eval code for you!"
@@ -61,7 +61,7 @@ class Eval extends command {
     //@ts-ignore
     catch (err) {
         //@ts-ignore
-        ctx.channel.createMessage(`\`ERROR\` \`\`\`xl\n${code}\n\`\`\``);
+        ctx.channel.createMessage(`\`ERROR\` \`\`\`\n${err}\n\`\`\``);
     }
     }
 }

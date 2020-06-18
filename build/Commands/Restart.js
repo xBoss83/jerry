@@ -10,7 +10,7 @@ class Restart extends Command_1.command {
         this.aliases = ["r"];
         this.alwaysEnabled = true;
         this.id = this.name;
-        this.requiredUsers = ["253233185800847361", "344954369285947392", "489989456175300618"];
+        this.requiredUsers = ["489989456175300618", "253233185800847361", "344954369285947392", "325087287539138560"];
         this.helpInfo = "Restarts Jerry.";
         this.commandType = "developer";
     }

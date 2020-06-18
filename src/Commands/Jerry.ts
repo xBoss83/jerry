@@ -15,7 +15,12 @@ class JerryCmd extends command {
     }
 
     async execute(jerry: Jerry, ctx: ICommandContext): Promise<any> {
-         ctx.channel.createMessage("<@344954369285947392> <@489989456175300618> <@253233185800847361>\nhttps://cdn.discordapp.com/attachments/448682951258144799/715698613430255687/video0_5.mp4");
+        if (config.owners.includes(ctx.user.id)) { 
+            ctx.channel.createMessage("<@344954369285947392> <@489989456175300618> <@253233185800847361>\nhttps://cdn.discordapp.com/attachments/448682951258144799/715698613430255687/video0_5.mp4");
+        } else { 
+            ctx.channel.createMessage("https://cdn.discordapp.com/attachments/448682951258144799/715698613430255687/video0_5.mp4")
+        }
+        
     }
 }
 module.exports.cmd = JerryCmd; 

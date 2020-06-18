@@ -11,7 +11,7 @@ class Post extends command {
         this.aliases = ["p"]
         this.alwaysEnabled = true;
         this.id = this.name;
-        this.requiredUsers = ["253233185800847361", "344954369285947392", "489989456175300618"]
+        this.requiredUsers = ["489989456175300618", "253233185800847361", "344954369285947392", "325087287539138560"];
         this.helpInfo = "Posts DBL stats for Jerry."
         this.commandType = "developer"
     }
