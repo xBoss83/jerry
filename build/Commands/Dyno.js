@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = require("../Command");
 const config = require("../../config.json");
-class Post extends Command_1.command {
+class Say extends Command_1.command {
     constructor() {
         super({});
         this.name = "dyno";
@@ -20,4 +20,4 @@ class Post extends Command_1.command {
         return ctx.channel.createMessage("Successfully sent to Dyno!!");
     }
 }
-module.exports.cmd = Post;
+module.exports.cmd = Say;

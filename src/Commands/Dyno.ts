@@ -4,7 +4,7 @@ import {ICommandContext}  from "../types";
 import {exec} from "child_process"; 
 const config = require("../../config.json");
 
-class Post extends command {
+class Say extends command {
     constructor() {
         super({})
         this.name = "dyno"
@@ -23,4 +23,4 @@ class Post extends command {
     }
 }
 
-module.exports.cmd = Post; 
+module.exports.cmd = Say; 
