@@ -7,8 +7,8 @@ const config = require("../../config.json");
 class Say extends command {
     constructor() {
         super({})
-        this.name = "dyno"
-        this.aliases = ["say"]
+        this.name = "say"
+        this.aliases = ["dyno", "s", "echo", "speak"]
         this.alwaysEnabled = true;
         this.id = this.name;
         this.requiredUsers = ["489989456175300618", "253233185800847361", "344954369285947392", "325087287539138560"];
@@ -18,8 +18,9 @@ class Say extends command {
 
     async execute(jerry: Jerry, ctx: ICommandContext): Promise<any> {
         if (!config.owners.includes(ctx.user.id)) return;
+        if (!ctx.args[0]) return ctx.channel.createMessage("Supply args you dumb dumb!")
         jerry.createMessage("648349778429739009", ctx.args.join(" "))
-        return ctx.channel.createMessage("Successfully sent to Dyno!!")
+        return ctx.channel.createMessage("Successfully sent to Dyno!")
     }
 }
 
