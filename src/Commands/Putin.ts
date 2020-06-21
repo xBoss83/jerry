@@ -23,7 +23,7 @@ class Putin extends command {
         const randomPutin = Math.floor(Math.random() * putins.length); 
 
         if (config.owners.includes(ctx.user.id)) { 
-            ctx.channel.createMessage(`<@344954369285947392> <@489989456175300618> <@253233185800847361>\n${putins[randomPutin]}`)
+            ctx.channel.createMessage(`<@344954369285947392> <@489989456175300618> <@253233185800847361> <@325087287539138560>\n${putins[randomPutin]}`)
         } else { 
             ctx.channel.createMessage(putins[randomPutin])
         }

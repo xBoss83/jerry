@@ -20,7 +20,7 @@ class Putin extends Command_1.command {
     async execute(jerry, ctx) {
         const randomPutin = Math.floor(Math.random() * exports.putins.length);
         if (config.owners.includes(ctx.user.id)) {
-            ctx.channel.createMessage(`<@344954369285947392> <@489989456175300618> <@253233185800847361>\n${exports.putins[randomPutin]}`);
+            ctx.channel.createMessage(`<@344954369285947392> <@489989456175300618> <@253233185800847361> <@325087287539138560>\n${exports.putins[randomPutin]}`);
         }
         else {
             ctx.channel.createMessage(exports.putins[randomPutin]);
