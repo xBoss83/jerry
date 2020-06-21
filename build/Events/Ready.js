@@ -9,7 +9,6 @@ class ReadyHandler {
     }
     async handle() {
         this.editStatus("online", { name: "in the pool!", type: 0 });
-        this.logger.success("Jerry", "Jerry has connected to Discord!");
         this.executeWebhook('722663407743926303', config.readyWebhook, {
             embeds: [
                 {
@@ -24,7 +23,7 @@ class ReadyHandler {
                 }
             ]
         });
-        return this.logger.success("Jerry", "Jerry has connected to Discord!");
+        this.logger.success("Jerry", "Jerry has connected to Discord!");
     }
 }
 exports.default = new ReadyHandler;
