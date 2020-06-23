@@ -23,7 +23,7 @@ class Restart extends command {
         const data = { 
             embed: { 
                 color: jerry.defaultColor, 
-                description: `<a:endlessgears:609046319155380231>restarting`
+                description: `<a:endlessgears:609046319155380231> Restarting`
             }
         }
          ctx.channel.createMessage(data);
