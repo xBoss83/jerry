@@ -17,7 +17,13 @@ class Restart extends Command_1.command {
     async execute(jerry, ctx) {
         if (!config.owners.includes(ctx.user.id))
             return;
-        ctx.channel.createMessage("Restarting Jerry!");
+        const data = {
+            embed: {
+                color: jerry.defaultColor,
+                description: `<a:endlessgears:609046319155380231>restarting`
+            }
+        };
+        ctx.channel.createMessage(data);
         await child_process_1.exec('pm2 restart Jerry', (error, stdout) => {
         });
     }

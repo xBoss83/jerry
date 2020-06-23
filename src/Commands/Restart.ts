@@ -18,8 +18,15 @@ class Restart extends command {
     }
 
     async execute(jerry: Jerry, ctx: ICommandContext): Promise<any> {
-         if (!config.owners.includes(ctx.user.id)) return 
-        ctx.channel.createMessage("Restarting Jerry!");
+        if (!config.owners.includes(ctx.user.id)) return; 
+         
+        const data = { 
+            embed: { 
+                color: jerry.defaultColor, 
+                description: `<a:endlessgears:609046319155380231>restarting`
+            }
+        }
+         ctx.channel.createMessage(data);
          await exec('pm2 restart Jerry', (error, stdout) => {
         })
     }
