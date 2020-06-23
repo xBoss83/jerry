@@ -22,6 +22,7 @@ class Support extends Command_1.command {
                 text: "Thanks for supporting Jerry!"
             }
         };
+        ctx.channel.createMessage(data);
     }
 }
 module.exports.cmd = Support;

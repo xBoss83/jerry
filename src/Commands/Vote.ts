@@ -24,8 +24,9 @@ class Support extends command {
             footer: { 
                 text: "Thanks for supporting Jerry!"
             }
-
+            
         }
+        ctx.channel.createMessage(data)
     }
 }
 
