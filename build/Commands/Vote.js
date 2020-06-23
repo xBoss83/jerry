@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = require("../Command");
-class Support extends Command_1.command {
+class Vote extends Command_1.command {
     constructor() {
         super({});
         this.name = "vote";
@@ -25,4 +25,4 @@ class Support extends Command_1.command {
         ctx.channel.createMessage(data);
     }
 }
-module.exports.cmd = Support;
+module.exports.cmd = Vote;

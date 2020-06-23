@@ -2,7 +2,7 @@ import {command} from "../Command";
 import {Jerry} from "../main"; 
 import {ICommandContext}  from "../types";
 
-class Support extends command {
+class Vote extends command {
     constructor() {
         super({})
         this.name = "vote"
@@ -30,4 +30,4 @@ class Support extends command {
     }
 }
 
-module.exports.cmd = Support; 
+module.exports.cmd = Vote; 
