@@ -6,7 +6,8 @@ const config = require("../../config.json");
 exports.putins = [
     "https://cdn.discordapp.com/attachments/448682951258144799/723729802951000104/pov_u_cute.mp4",
     "https://cdn.discordapp.com/attachments/511737830637174795/719624365171540039/video0-111-1.mp4",
-    "https://cdn.discordapp.com/attachments/448682951258144799/718950669167362078/video0.mp4"
+    "https://cdn.discordapp.com/attachments/448682951258144799/718950669167362078/video0.mp4",
+    "https://tenor.com/view/wide-putin-walking-vladimir-putin-sped-up-gif-17500561"
 ];
 class Putin extends Command_1.command {
     constructor() {
