@@ -13,7 +13,7 @@ class MessageCreateHandler {
         if (blacklistPeck.includes(msg.channel.guild.id)) {
             canPeck = false;
         }
-        if ((randomNumGenerator === 10 || randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100) && canPeck) {
+        if ((randomNumGenerator === 50 || randomNumGenerator === 100) && canPeck) {
             msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`);
         }
         handleCommand(msg, this);
