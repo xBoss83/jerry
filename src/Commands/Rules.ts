@@ -4,7 +4,7 @@ import {ICommandContext}  from "../types";
 import {exec} from "child_process"; 
 const config = require("../../config.json");
 
-class Info extends command {
+class Rules extends command {
     constructor() {
         super({})
         this.name = "info"
@@ -34,4 +34,4 @@ class Info extends command {
     }
 }
 
-module.exports.cmd = Info; 
+module.exports.cmd = Rules; 

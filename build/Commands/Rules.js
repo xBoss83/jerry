@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = require("../Command");
 const config = require("../../config.json");
-class Info extends Command_1.command {
+class Rules extends Command_1.command {
     constructor() {
         super({});
         this.name = "info";
@@ -30,4 +30,4 @@ class Info extends Command_1.command {
         jerry.createMessage("722659905542291487", data);
     }
 }
-module.exports.cmd = Info;
+module.exports.cmd = Rules;
