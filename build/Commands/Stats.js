@@ -52,7 +52,7 @@ class Stats extends Command_1.command {
                     },
                     {
                         name: 'Developers',
-                        value: 'boss#0001, bean#8888, wuper#9212'
+                        value: 'boss#0001, bean#8888, wuper#9212, Lyss#0001'
                     },
                     {
                         name: 'Servers',
@@ -71,7 +71,7 @@ class Stats extends Command_1.command {
                     },
                     {
                         name: 'Support Server',
-                        value: `Soon`,
+                        value: `[Click Here](https://discord.gg/UPKZK8R)`,
                         inline: true
                     },
                     {
