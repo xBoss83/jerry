@@ -71,20 +71,6 @@ export class Jerry extends Client {
             this.loadEvent(file);
         });
     }
-
-    private db(mongodbLogin: string): void{
-        mongoose.connect(`${config.mongodbLogin}`, { 
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useFindAndModify: true
-        });
-        mongoose.connection.on("error", () => { 
-            this.logger.error("MongoDB", "Failed to connect to MongoDB")
-        });
-        mongoose.connection.on("open", () => { 
-            this.logger.success("MongoDB", "Connected to MongoDB")
-        })
-    }
     
     loadEvent(eventfile: string): void{
         try{
