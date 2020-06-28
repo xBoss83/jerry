@@ -3,6 +3,7 @@ import {default as fs} from "fs"
 import {Logger} from "./logger"
 import {command} from "./Command";
 import {default as axios} from "axios"; 
+
 const config = require("../config.json"); 
 
 export class Jerry extends Client {
@@ -11,6 +12,7 @@ export class Jerry extends Client {
     bevents: {[key: string]: () => void};
     commands: Collection<command>;
     defaultColor = 14460415;
+    
     constructor(token: string, options: ClientOptions) {
         super(token, options);
         this.logger = new Logger()
