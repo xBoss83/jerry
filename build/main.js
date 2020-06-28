@@ -9,6 +9,7 @@ const fs_1 = __importDefault(require("fs"));
 const logger_1 = require("./logger");
 const Command_1 = require("./Command");
 const axios_1 = __importDefault(require("axios"));
+const mongoose_1 = __importDefault(require("mongoose"));
 const config = require("../config.json");
 class Jerry extends eris_1.Client {
     constructor(token, options) {
@@ -62,6 +63,19 @@ class Jerry extends eris_1.Client {
         const eventfiles = fs_1.default.readdirSync(__dirname + "/Events");
         eventfiles.forEach(file => {
             this.loadEvent(file);
+        });
+    }
+    db(mongodbLogin) {
+        mongoose_1.default.connect(`${config.mongodbLogin}`, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: true
+        });
+        mongoose_1.default.connection.on("error", () => {
+            this.logger.error("MongoDB", "Failed to connect to MongoDB");
+        });
+        mongoose_1.default.connection.on("open", () => {
+            this.logger.success("MongoDB", "Connected to MongoDB");
         });
     }
     loadEvent(eventfile) {

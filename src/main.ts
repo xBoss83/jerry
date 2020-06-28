@@ -3,6 +3,8 @@ import {default as fs} from "fs"
 import {Logger} from "./logger"
 import {command} from "./Command";
 import {default as axios} from "axios"; 
+import {default as mongoose} from "mongoose";
+
 const config = require("../config.json"); 
 
 export class Jerry extends Client {
@@ -18,6 +20,7 @@ export class Jerry extends Client {
         //this makes events work
         this.bevents = {};
         this.commands = new Collection(command);
+
     }
 
     init(): void {
@@ -68,6 +71,20 @@ export class Jerry extends Client {
             this.loadEvent(file);
         });
     }
+
+    private db(mongodbLogin: string): void{
+        mongoose.connect(`${config.mongodbLogin}`, { 
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: true
+        });
+        mongoose.connection.on("error", () => { 
+            this.logger.error("MongoDB", "Failed to connect to MongoDB")
+        });
+        mongoose.connection.on("open", () => { 
+            this.logger.success("MongoDB", "Connected to MongoDB")
+        })
+    }
     
     loadEvent(eventfile: string): void{
         try{
@@ -103,6 +120,8 @@ export class Jerry extends Client {
         });
     }
 }
+
+  
 
 const jerry = new Jerry(config.token, {
     autoreconnect: true, 
