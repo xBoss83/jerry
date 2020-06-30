@@ -5,6 +5,7 @@ class MessageCreateHandler {
     constructor() {
         this.name = "messageCreate";
     }
+<<<<<<< HEAD
     async handle(msg) {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -47,6 +48,8 @@ class MessageCreateHandler {
         }
         handleCommand(msg, this);
     }
+=======
+>>>>>>> 16fd67bfa3f83cb9c4436e24e97aa52caf1c6002
 }
 //finds the command object specified by the search
 function findCommand(search, jerry) {
@@ -127,6 +130,7 @@ async function _commandHandler(msg, label, args, jerry) {
     };
     //@ts-ignore
     await command.execute(jerry, ctx, false).catch((err) => {
+        console.log(command);
         jerry.logger.error("Jerry Error", `Command error from message ${msg.content} error: ${err}`);
     });
     //signale.error(`[Hyperion] command error on guild ${msg.channel.guild.id} from message ${msg.content}`);

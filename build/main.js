@@ -70,6 +70,7 @@ class Jerry extends eris_1.Client {
     loadEvents() {
         const eventfiles = fs_1.default.readdirSync(__dirname + "/Events");
         eventfiles.forEach(file => {
+            console.log(file);
             this.loadEvent(file);
         });
     }
@@ -84,6 +85,7 @@ class Jerry extends eris_1.Client {
         }
         catch (err) {
             console.log(err);
+            console.log("hi");
         }
     }
     db() {
@@ -127,5 +129,4 @@ const jerry = new Jerry(config.token, {
     getAllUsers: true
 });
 jerry.init();
-// hi
 // hi

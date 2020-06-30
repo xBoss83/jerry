@@ -11,17 +11,19 @@ class MessageCreateHandler{
         this.name = "messageCreate";
     }
     
+<<<<<<< HEAD
     async handle(this: Jerry, msg: Message): Promise<void> {
 <<<<<<< HEAD
 <<<<<<< HEAD
         const randomNumGenerator = Math.round(Math.random() * 1)
+=======
+    /*async handle(this: Jerry, msg: Message): Promise<void> {
+        const randomNumGenerator = Math.round(Math.random() * 150)
+>>>>>>> 16fd67bfa3f83cb9c4436e24e97aa52caf1c6002
         let canPeckUsers = true;
         let canPeckServers = true
-        const thing = await globalModel.findOne({}).exec()
-        const array1 = thing.blacklistPeckUsers
         const thing2 = await globalModel.findOne({}).exec()
         const array2 = thing2.blacklistedPeckGuilds
-        if (array1.includes(msg.member?.id)){canPeckUsers = false}
         if (array2.includes(msg.guildID)){canPeckServers = false}
         //@ts-ignore
         if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
@@ -42,7 +44,7 @@ class MessageCreateHandler{
         if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150 || randomNumGenerator === 175 || randomNumGenerator === 200) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
 >>>>>>> parent of c91d764... enable peck per user and for the whole server
         handleCommand(msg, this);
-    }
+    }*/
 }
 
 
@@ -135,6 +137,7 @@ async function _commandHandler(msg: Message, label: string, args: Array<string>,
 
     //@ts-ignore
     await command.execute(jerry, ctx, false).catch((err: Error) => {
+        console.log(command)
         jerry.logger.error("Jerry Error", `Command error from message ${msg.content} error: ${err}`);
     });
     
