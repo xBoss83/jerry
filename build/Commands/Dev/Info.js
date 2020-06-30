@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Command_1 = require("../Command");
+const Command_1 = require("../../Command");
 const config = require("../../config.json");
-class Roles extends Command_1.command {
+class Info extends Command_1.command {
     constructor() {
         super({});
         this.name = "info";
@@ -19,10 +19,10 @@ class Roles extends Command_1.command {
         let data = {
             embed: {
                 author: {
-                    text: "Server Roles",
+                    text: "About Jerry",
                     icon_url: jerry.user.avatarURL
                 },
-                description: "<@&720385882158399498> Me, I am king.\n\n<@&722656917188509696> Jerry's developers\n\n<@&722661381316280321> Jerry Staff\n\n<@&722660901546754129> Other bots"
+                description: "Jerry is a TikTok superstar! He is a duck that can swim in the rain, and kill Ally!! He is constantly being a toxic troll and a nuisance, but we love him. He is a goodboy.\n\n**[Add Jerry]**(https://discord.com/oauth2/authorize?client_id=599447466370138163&scope=bot&permissions=515296)\n\n[Top.gg Page](https://top.gg/bot/599447466370138163)\n[Vote for Jerry](https://top.gg/bot/599447466370138163)\n\n**Server Invite:** https://discord.gg/UPKZK8R"
             },
             color: jerry.defaultColor
         };
@@ -30,4 +30,4 @@ class Roles extends Command_1.command {
         jerry.createMessage("722659905542291487", data);
     }
 }
-module.exports.cmd = Roles;
+module.exports.cmd = Info;

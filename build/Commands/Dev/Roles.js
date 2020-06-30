@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Command_1 = require("../Command");
+const Command_1 = require("../../Command");
 const config = require("../../config.json");
 class Roles extends Command_1.command {
     constructor() {
