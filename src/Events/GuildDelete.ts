@@ -1,6 +1,8 @@
 import {Jerry} from "../main";
 import { ICommandContext } from "../types";
 import { Guild } from "eris";
+//@ts-ignore
+import model from "../Models/Guild"; 
 const config = require("../../config.json"); 
 
 class GuildCreateHandler {
@@ -11,7 +13,9 @@ class GuildCreateHandler {
 
     async handle(this: Jerry, guild: Guild): Promise<void> {
         let owner = this.users.get(guild.ownerID)
+        const guildThing = model.findOne({guildID: guild.id})
 
+        await guildThing.deleteOne()
         this.executeWebhook('722663743271469067', config.guildWebhook, { 
 
             embeds: [
