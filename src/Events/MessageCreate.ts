@@ -12,12 +12,12 @@ class MessageCreateHandler{
     }
     
     async handle(this: Jerry, msg: Message): Promise<void> {
-        const randomNumGenerator = Math.round(Math.random() * 100)
+        const randomNumGenerator = Math.round(Math.random() * 200)
         let canPeck = true;
         const blacklistPeck = ["264445053596991498"];
         //@ts-ignore
         if(blacklistPeck.includes(msg.channel.guild.id)){canPeck = false;}
-        if((randomNumGenerator === 50 || randomNumGenerator === 100) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
+        if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150 || randomNumGenerator === 175 || randomNumGenerator === 200) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
         handleCommand(msg, this);
     }
 }
