@@ -1,10 +1,16 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+//@ts-ignore
+const Global_1 = __importDefault(require("../Models/Global"));
 const config = require('../../config.json');
 class MessageCreateHandler {
     constructor() {
         this.name = "messageCreate";
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
     async handle(msg) {
 <<<<<<< HEAD
@@ -20,11 +26,20 @@ class MessageCreateHandler {
         if (array1.includes((_a = msg.member) === null || _a === void 0 ? void 0 : _a.id)) {
             canPeckUsers = false;
         }
+=======
+    async handle(msg) {
+        const randomNumGenerator = Math.round(Math.random() * 150);
+        let canPeckUsers = true;
+        let canPeckServers = true;
+        const thing2 = await Global_1.default.findOne({}).exec();
+        const array2 = thing2.blacklistedPeckGuilds;
+>>>>>>> dfb5ed17baf48d3e7d786208629ad21acd9fb7a0
         if (array2.includes(msg.guildID)) {
             canPeckServers = false;
         }
         //@ts-ignore
         if ((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers) {
+<<<<<<< HEAD
 =======
         const randomNumGenerator = Math.round(Math.random() * 200);
         let canPeck = true;
@@ -44,12 +59,17 @@ class MessageCreateHandler {
 >>>>>>> parent of c91d764... enable peck per user and for the whole server
 =======
 >>>>>>> parent of c91d764... enable peck per user and for the whole server
+=======
+>>>>>>> dfb5ed17baf48d3e7d786208629ad21acd9fb7a0
             msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`);
         }
         handleCommand(msg, this);
     }
+<<<<<<< HEAD
 =======
 >>>>>>> 16fd67bfa3f83cb9c4436e24e97aa52caf1c6002
+=======
+>>>>>>> dfb5ed17baf48d3e7d786208629ad21acd9fb7a0
 }
 //finds the command object specified by the search
 function findCommand(search, jerry) {

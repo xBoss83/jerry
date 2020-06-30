@@ -12,12 +12,16 @@ class MessageCreateHandler{
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     async handle(this: Jerry, msg: Message): Promise<void> {
 <<<<<<< HEAD
 <<<<<<< HEAD
         const randomNumGenerator = Math.round(Math.random() * 1)
 =======
     /*async handle(this: Jerry, msg: Message): Promise<void> {
+=======
+    async handle(this: Jerry, msg: Message): Promise<void> {
+>>>>>>> dfb5ed17baf48d3e7d786208629ad21acd9fb7a0
         const randomNumGenerator = Math.round(Math.random() * 150)
 >>>>>>> 16fd67bfa3f83cb9c4436e24e97aa52caf1c6002
         let canPeckUsers = true;
@@ -44,7 +48,7 @@ class MessageCreateHandler{
         if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150 || randomNumGenerator === 175 || randomNumGenerator === 200) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
 >>>>>>> parent of c91d764... enable peck per user and for the whole server
         handleCommand(msg, this);
-    }*/
+    }
 }
 
 
