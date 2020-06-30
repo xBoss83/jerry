@@ -111,6 +111,7 @@ async function _commandHandler(msg, label, args, jerry) {
     };
     //@ts-ignore
     await command.execute(jerry, ctx, false).catch((err) => {
+        console.log(command);
         jerry.logger.error("Jerry Error", `Command error from message ${msg.content} error: ${err}`);
     });
     //signale.error(`[Hyperion] command error on guild ${msg.channel.guild.id} from message ${msg.content}`);

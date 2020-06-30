@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const config = require("../../config.json");
 let logTime = new Date().toLocaleTimeString();
 let logDate = new Date().toLocaleDateString();
+//@ts-ignore
 class ReadyHandler {
     constructor() {
         this.name = "ready";
