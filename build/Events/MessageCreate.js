@@ -11,11 +11,17 @@ class MessageCreateHandler {
         this.name = "messageCreate";
     }
     async handle(msg) {
-        const randomNumGenerator = Math.round(Math.random() * 150);
+        var _a;
+        const randomNumGenerator = Math.round(Math.random() * 1);
         let canPeckUsers = true;
         let canPeckServers = true;
+        const thing = await Global_1.default.findOne({}).exec();
+        const array1 = thing.blacklistPeckUsers;
         const thing2 = await Global_1.default.findOne({}).exec();
         const array2 = thing2.blacklistedPeckGuilds;
+        if (array1.includes((_a = msg.member) === null || _a === void 0 ? void 0 : _a.id)) {
+            canPeckUsers = false;
+        }
         if (array2.includes(msg.guildID)) {
             canPeckServers = false;
         }
