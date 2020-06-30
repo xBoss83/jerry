@@ -1,35 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-//@ts-ignore
-const Global_1 = __importDefault(require("../Models/Global"));
 const config = require('../../config.json');
 class MessageCreateHandler {
     constructor() {
         this.name = "messageCreate";
-    }
-    async handle(msg) {
-        var _a;
-        const randomNumGenerator = Math.round(Math.random() * 1);
-        let canPeckUsers = true;
-        let canPeckServers = true;
-        const thing = await Global_1.default.findOne({}).exec();
-        const array1 = thing.blacklistPeckUsers;
-        const thing2 = await Global_1.default.findOne({}).exec();
-        const array2 = thing2.blacklistedPeckGuilds;
-        if (array1.includes((_a = msg.member) === null || _a === void 0 ? void 0 : _a.id)) {
-            canPeckUsers = false;
-        }
-        if (array2.includes(msg.guildID)) {
-            canPeckServers = false;
-        }
-        //@ts-ignore
-        if ((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers) {
-            msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`);
-        }
-        handleCommand(msg, this);
     }
 }
 //finds the command object specified by the search
