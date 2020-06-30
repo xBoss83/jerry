@@ -13,7 +13,7 @@ class Peck extends Command_1.command {
         this.aliases = ["config"];
         this.alwaysEnabled = true;
         this.id = this.name;
-        this.helpInfo = "This command will disable/enable Jerry pecks for a user or for the whole server.\n\n`jerry pls peck disable` - Disables peck for the entire server\n`jerry pls peck enable` - Enables peck for the entire server\n**THIS REQUIRE** `MANAGE_SERVER` or `ADMINISTRATOR` **PERMISSION TO USE!**\n\n`jerry pls togglepeck` - This toggles whether or not you want Jerry to peck you.";
+        this.helpInfo = "This command will disable/enable Jerry pecks for a user or for the whole server.\n\n`jerry pls peck disable` - Disables peck for the entire server\n`jerry pls peck enable` - Enables peck for the entire server\n**THIS REQUIRE** `MANAGE_SERVER` or `ADMINISTRATOR` **PERMISSION TO USE!**";
     }
     async execute(jerry, ctx) {
         var _a, _b;
@@ -41,18 +41,6 @@ class Peck extends Command_1.command {
             }
             else {
                 return ctx.channel.createMessage("Pecking is not disabled on this server!");
-            }
-        }
-        if (ctx.args[0] === "togglepeck") {
-            const thing = await Global_1.default.findOne({}).exec();
-            const array2 = thing.blacklistPeckUsers;
-            if (!array2.includes(ctx.user.id)) {
-                await Global_1.default.updateOne({ $push: { blacklistPeckUsers: ctx.user.id } });
-                return ctx.channel.createMessage("Successfully disabled pecking for you! You will not be pecked by Jerry.");
-            }
-            else {
-                await Global_1.default.updateOne({ $pull: { blacklistPeckUsers: ctx.user.id } });
-                return ctx.channel.createMessage("Successfully enabled pecking for you! You will now be pecked by Jerry.");
             }
         }
     }

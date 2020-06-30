@@ -15,13 +15,16 @@ class MessageCreateHandler{
     }
     
     async handle(this: Jerry, msg: Message): Promise<void> {
-        const randomNumGenerator = Math.round(Math.random() * 150)
+        const fuckmeup = new globalModel({})
+
+        fuckmeup.save
+        const randomNumGenerator = Math.round(Math.random() * 1)
         let canPeckServers = true
         const thing2 = await globalModel.findOne({}).exec()
         const array2 = thing2.blacklistedPeckGuilds
         if (array2.includes(msg.guildID)){canPeckServers = false}
         //@ts-ignore
-        if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
+        if((randomNumGenerator === 1 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
         handleCommand(msg, this);
     }
 }
