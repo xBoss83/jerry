@@ -76,7 +76,9 @@ export class Jerry extends Client {
     loadEvents(): void{
         const eventfiles = fs.readdirSync(__dirname + "/Events");
         eventfiles.forEach(file => {
+            console.log(file)
             this.loadEvent(file);
+            
         });
     }
     
@@ -88,7 +90,8 @@ export class Jerry extends Client {
             this.on(Event.name, this.bevents[Event.name]);
         }catch(err){
             
-            console.log(err);
+            console.log(err)
+            console.log("hi");
         }
     }
 
@@ -139,5 +142,4 @@ const jerry = new Jerry(config.token, {
 })
 
 jerry.init(); 
-// hi
 // hi

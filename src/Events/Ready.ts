@@ -3,6 +3,8 @@ import { jerrys } from "../Commands/JerryPic";
 const config = require("../../config.json"); 
 let logTime = new Date().toLocaleTimeString(); 
 let logDate = new Date().toLocaleDateString()
+//@ts-ignore
+import globalModel from "../Models/Global"; 
 class ReadyHandler {
     name: string;
     constructor(){
