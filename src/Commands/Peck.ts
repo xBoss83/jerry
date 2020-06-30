@@ -1,4 +1,4 @@
-/*(import {command} from "../Command"; 
+import {command} from "../Command"; 
 import {Jerry} from "../main"; 
 import {ICommandContext}  from "../types";
 //@ts-ignore
@@ -11,11 +11,7 @@ class Peck extends command {
         this.aliases = ["config"]
         this.alwaysEnabled = true;
         this.id = this.name;
-<<<<<<< HEAD
         this.helpInfo = "This command will disable/enable Jerry pecks for the whole server.\n\n`jerry pls peck disable` - Disables peck for the entire server\n`jerry pls peck enable` - Enables peck for the entire server\n**THIS REQUIRE** `MANAGE_SERVER` or `ADMINISTRATOR` **PERMISSION TO USE!**\n\n`jerry pls togglepeck` - This toggles whether or not you want Jerry to peck you."
-=======
-        this.helpInfo = "This command will disable/enable Jerry pecks for a user or for the whole server.\n\n`jerry pls peck disable` - Disables peck for the entire server\n`jerry pls peck enable` - Enables peck for the entire server\n**THIS REQUIRE** `MANAGE_SERVER` or `ADMINISTRATOR` **PERMISSION TO USE!**"
->>>>>>> dev
     }
 
     async execute(jerry: Jerry, ctx: ICommandContext): Promise<any> {
@@ -46,4 +42,4 @@ class Peck extends command {
     }
 }
 
-module.exports.cmd = Peck; */
+module.exports.cmd = Peck; 
