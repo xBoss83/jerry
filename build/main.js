@@ -128,4 +128,3 @@ const jerry = new Jerry(config.token, {
 });
 jerry.init();
 // hi
-// hi
