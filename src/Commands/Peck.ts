@@ -16,7 +16,7 @@ class Peck extends command {
 
     async execute(jerry: Jerry, ctx: ICommandContext): Promise<any> {
         if (ctx.args[0] === "disable") { 
-            if (!ctx.msg.member?.permission.has("manageGuild") || !ctx.msg.member.permission.has("administrator")) return;
+            if (!ctx.member.permission.has("manageGuild") || !ctx.member.permission.has("administrator")) return;
             const thing = await globalModel.findOne({}).exec()
             const array1 = thing.blacklistedPeckGuilds
             if (!array1.includes(ctx.guild.id)) { 
@@ -28,7 +28,7 @@ class Peck extends command {
            }
 
        if (ctx.args[0] === "enable") { 
-        if (!ctx.msg.member?.permission.has("manageGuild") || !ctx.msg.member.permission.has("administrator")) return;
+        if (!ctx.member.permission.has("manageGuild") || !ctx.member.permission.has("administrator")) return;
         const thing = await globalModel.findOne({}).exec()
         const array1 = thing.blacklistedPeckGuilds
         if (array1.includes(ctx.guild.id)) { 

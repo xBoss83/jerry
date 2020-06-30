@@ -16,9 +16,8 @@ class Peck extends Command_1.command {
         this.helpInfo = "This command will disable/enable Jerry pecks for a user or for the whole server.\n\n`jerry pls peck disable` - Disables peck for the entire server\n`jerry pls peck enable` - Enables peck for the entire server\n**THIS REQUIRE** `MANAGE_SERVER` or `ADMINISTRATOR` **PERMISSION TO USE!**";
     }
     async execute(jerry, ctx) {
-        var _a, _b;
         if (ctx.args[0] === "disable") {
-            if (!((_a = ctx.msg.member) === null || _a === void 0 ? void 0 : _a.permission.has("manageGuild")) || !ctx.msg.member.permission.has("administrator"))
+            if (!ctx.member.permission.has("manageGuild") || !ctx.member.permission.has("administrator"))
                 return;
             const thing = await Global_1.default.findOne({}).exec();
             const array1 = thing.blacklistedPeckGuilds;
@@ -31,7 +30,7 @@ class Peck extends Command_1.command {
             }
         }
         if (ctx.args[0] === "enable") {
-            if (!((_b = ctx.msg.member) === null || _b === void 0 ? void 0 : _b.permission.has("manageGuild")) || !ctx.msg.member.permission.has("administrator"))
+            if (!ctx.member.permission.has("manageGuild") || !ctx.member.permission.has("administrator"))
                 return;
             const thing = await Global_1.default.findOne({}).exec();
             const array1 = thing.blacklistedPeckGuilds;
