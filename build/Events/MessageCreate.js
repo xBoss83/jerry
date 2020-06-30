@@ -1,16 +1,12 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-//@ts-ignore
-const Global_1 = __importDefault(require("../Models/Global"));
 const config = require('../../config.json');
 class MessageCreateHandler {
     constructor() {
         this.name = "messageCreate";
     }
     async handle(msg) {
+<<<<<<< HEAD
         var _a;
         const randomNumGenerator = Math.round(Math.random() * 1);
         let canPeckUsers = true;
@@ -27,6 +23,16 @@ class MessageCreateHandler {
         }
         //@ts-ignore
         if ((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers) {
+=======
+        const randomNumGenerator = Math.round(Math.random() * 200);
+        let canPeck = true;
+        const blacklistPeck = ["264445053596991498"];
+        //@ts-ignore
+        if (blacklistPeck.includes(msg.channel.guild.id)) {
+            canPeck = false;
+        }
+        if ((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150 || randomNumGenerator === 175 || randomNumGenerator === 200) && canPeck) {
+>>>>>>> parent of c91d764... enable peck per user and for the whole server
             msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`);
         }
         handleCommand(msg, this);
