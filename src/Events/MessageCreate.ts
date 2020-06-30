@@ -14,7 +14,7 @@ class MessageCreateHandler{
         this.name = "messageCreate";
     }
     
-    /*async handle(this: Jerry, msg: Message): Promise<void> {
+    async handle(this: Jerry, msg: Message): Promise<void> {
         const randomNumGenerator = Math.round(Math.random() * 150)
         let canPeckUsers = true;
         let canPeckServers = true
@@ -24,7 +24,7 @@ class MessageCreateHandler{
         //@ts-ignore
         if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
         handleCommand(msg, this);
-    }*/
+    }
 }
 
 
