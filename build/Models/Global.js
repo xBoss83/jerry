@@ -8,10 +8,6 @@ const GlobalModel = new mongoose_1.default.Schema({
     blacklistedPeckGuilds: {
         type: Array,
         default: []
-    },
-    blacklistPeckUsers: {
-        type: Array,
-        default: []
     }
 });
 module.exports = mongoose_1.default.model("Global DB | Jerry", GlobalModel);
