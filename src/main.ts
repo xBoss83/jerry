@@ -13,6 +13,13 @@ export class Jerry extends Client {
     bevents: {[key: string]: () => void};
     commands: Collection<command>;
     defaultColor = 14460415;
+    version = "v1.0.0"; 
+    success = "<:jerrySuccess:726900436119846993>"; 
+    error = "<:jerryError:726902006538567680>"; 
+    online = "<:jerryOnline:726901924116562030>"; 
+    idle = "<:jerryIdle:726901836958924923>"; 
+    dnd = "<:jerryDND:726901785175916635>"; 
+    offline = "<:jerryOffline:726901880034164767>"
     constructor(token: string, options: ClientOptions) {
         super(token, options);
         this.logger = new Logger()
@@ -33,6 +40,7 @@ export class Jerry extends Client {
         this.loadEvents()
         this.loadCommands()
         this.connect();
+        this.db()
     }
 
     peck(target: string, times: number): string {
@@ -84,6 +92,20 @@ export class Jerry extends Client {
         }
     }
 
+    private db(): void{
+        mongoose.connect(`${config.mongodbLogin}`, { 
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: true
+        });
+        mongoose.connection.on("error", () => { 
+            this.logger.error("Jerry", "Failed to connect to MongoDB")
+        });
+        mongoose.connection.on("open", () => { 
+            this.logger.success("Jerry", "Connected to MongoDB")
+        })
+    }
+
     reloadEvent(eventname: string): void{
         if(!this.bevents[eventname]){throw new Error("Can not reload an event that doesnt exist!");}
         delete require.cache[require.resolve(`${__dirname}/Events/${eventname.charAt(0).toUpperCase() + eventname.slice(1)}.js`)];
@@ -117,4 +139,5 @@ const jerry = new Jerry(config.token, {
 })
 
 jerry.init(); 
+// hi
 // hi

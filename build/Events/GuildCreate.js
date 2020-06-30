@@ -1,5 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+//@ts-ignore
+const Guild_1 = __importDefault(require("../Models/Guild"));
 const config = require("../../config.json");
 class GuildCreateHandler {
     constructor() {
@@ -7,6 +12,8 @@ class GuildCreateHandler {
     }
     async handle(guild) {
         let owner = this.users.get(guild.ownerID);
+        const guildThing = new Guild_1.default({ guildID: guild.id });
+        guildThing.save();
         this.executeWebhook('722663743271469067', config.guildWebhook, {
             embeds: [
                 {

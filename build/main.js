@@ -9,12 +9,20 @@ const fs_1 = __importDefault(require("fs"));
 const logger_1 = require("./logger");
 const Command_1 = require("./Command");
 const axios_1 = __importDefault(require("axios"));
+const mongoose_1 = __importDefault(require("mongoose"));
 const config = require("../config.json");
 class Jerry extends eris_1.Client {
     constructor(token, options) {
         super(token, options);
         this.canSwimInRain = false;
         this.defaultColor = 14460415;
+        this.version = "v1.0.0";
+        this.success = "<:jerrySuccess:726900436119846993>";
+        this.error = "<:jerryError:726902006538567680>";
+        this.online = "<:jerryOnline:726901924116562030>";
+        this.idle = "<:jerryIdle:726901836958924923>";
+        this.dnd = "<:jerryDND:726901785175916635>";
+        this.offline = "<:jerryOffline:726901880034164767>";
         this.logger = new logger_1.Logger();
         //DO NOT TOUCH
         //this makes events work
@@ -30,6 +38,7 @@ class Jerry extends eris_1.Client {
         this.loadEvents();
         this.loadCommands();
         this.connect();
+        this.db();
     }
     peck(target, times) {
         return `Jerry pecked ${target} ${times} times!`;
@@ -77,6 +86,19 @@ class Jerry extends eris_1.Client {
             console.log(err);
         }
     }
+    db() {
+        mongoose_1.default.connect(`${config.mongodbLogin}`, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: true
+        });
+        mongoose_1.default.connection.on("error", () => {
+            this.logger.error("Jerry", "Failed to connect to MongoDB");
+        });
+        mongoose_1.default.connection.on("open", () => {
+            this.logger.success("Jerry", "Connected to MongoDB");
+        });
+    }
     reloadEvent(eventname) {
         if (!this.bevents[eventname]) {
             throw new Error("Can not reload an event that doesnt exist!");
@@ -105,4 +127,5 @@ const jerry = new Jerry(config.token, {
     getAllUsers: true
 });
 jerry.init();
+// hi
 // hi
