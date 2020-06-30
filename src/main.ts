@@ -13,7 +13,7 @@ export class Jerry extends Client {
     bevents: {[key: string]: () => void};
     commands: Collection<command>;
     defaultColor = 14460415;
-    version = "v1.0.0"; 
+    version = "v1.1.0"; 
     success = "<:jerrySuccess:726900436119846993>"; 
     error = "<:jerryError:726902006538567680>"; 
     online = "<:jerryOnline:726901924116562030>"; 

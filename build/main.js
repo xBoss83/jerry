@@ -16,7 +16,7 @@ class Jerry extends eris_1.Client {
         super(token, options);
         this.canSwimInRain = false;
         this.defaultColor = 14460415;
-        this.version = "v1.0.0";
+        this.version = "v1.1.0";
         this.success = "<:jerrySuccess:726900436119846993>";
         this.error = "<:jerryError:726902006538567680>";
         this.online = "<:jerryOnline:726901924116562030>";
