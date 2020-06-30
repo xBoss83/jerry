@@ -7,6 +7,7 @@ class MessageCreateHandler {
     }
     async handle(msg) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         var _a;
         const randomNumGenerator = Math.round(Math.random() * 1);
         let canPeckUsers = true;
@@ -28,10 +29,19 @@ class MessageCreateHandler {
         let canPeck = true;
         const blacklistPeck = ["264445053596991498"];
         //@ts-ignore
+=======
+        const randomNumGenerator = Math.round(Math.random() * 200);
+        let canPeck = true;
+        const blacklistPeck = ["264445053596991498"];
+        //@ts-ignore
+>>>>>>> parent of c91d764... enable peck per user and for the whole server
         if (blacklistPeck.includes(msg.channel.guild.id)) {
             canPeck = false;
         }
         if ((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150 || randomNumGenerator === 175 || randomNumGenerator === 200) && canPeck) {
+<<<<<<< HEAD
+>>>>>>> parent of c91d764... enable peck per user and for the whole server
+=======
 >>>>>>> parent of c91d764... enable peck per user and for the whole server
             msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`);
         }

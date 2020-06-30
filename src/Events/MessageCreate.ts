@@ -13,6 +13,7 @@ class MessageCreateHandler{
     
     async handle(this: Jerry, msg: Message): Promise<void> {
 <<<<<<< HEAD
+<<<<<<< HEAD
         const randomNumGenerator = Math.round(Math.random() * 1)
         let canPeckUsers = true;
         let canPeckServers = true
@@ -24,6 +25,14 @@ class MessageCreateHandler{
         if (array2.includes(msg.guildID)){canPeckServers = false}
         //@ts-ignore
         if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
+=======
+        const randomNumGenerator = Math.round(Math.random() * 200)
+        let canPeck = true;
+        const blacklistPeck = ["264445053596991498"];
+        //@ts-ignore
+        if(blacklistPeck.includes(msg.channel.guild.id)){canPeck = false;}
+        if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150 || randomNumGenerator === 175 || randomNumGenerator === 200) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
+>>>>>>> parent of c91d764... enable peck per user and for the whole server
 =======
         const randomNumGenerator = Math.round(Math.random() * 200)
         let canPeck = true;
