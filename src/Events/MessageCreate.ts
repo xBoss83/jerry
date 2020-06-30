@@ -18,7 +18,7 @@ class MessageCreateHandler{
         const fuckmeup = new globalModel({})
 
         fuckmeup.save
-        const randomNumGenerator = Math.round(Math.random() * 1)
+        const randomNumGenerator = Math.round(Math.random() * 150)
         let canPeckServers = true
         const thing2 = await globalModel.findOne({}).exec()
         const array2 = thing2.blacklistedPeckGuilds

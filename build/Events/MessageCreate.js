@@ -13,7 +13,7 @@ class MessageCreateHandler {
     async handle(msg) {
         const fuckmeup = new Global_1.default({});
         fuckmeup.save;
-        const randomNumGenerator = Math.round(Math.random() * 1);
+        const randomNumGenerator = Math.round(Math.random() * 150);
         let canPeckServers = true;
         const thing2 = await Global_1.default.findOne({}).exec();
         const array2 = thing2.blacklistedPeckGuilds;
