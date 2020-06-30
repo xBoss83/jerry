@@ -2,7 +2,10 @@ import {Jerry} from "../main";
 import {Message, Member, TextChannel} from "eris";
 import {command} from "../Command";
 import {ICommandContext} from "../types";
-import { jerrys } from "../Commands/JerryPic";
+//@ts-ignore
+import globalModel from "../Models/Global"; 
+//@ts-ignore
+import guildModel from "../Models/Guild"
 const config = require('../../config.json'); 
 
 class MessageCreateHandler{
@@ -12,12 +15,17 @@ class MessageCreateHandler{
     }
     
     async handle(this: Jerry, msg: Message): Promise<void> {
-        const randomNumGenerator = Math.round(Math.random() * 200)
-        let canPeck = true;
-        const blacklistPeck = ["264445053596991498"];
+        const randomNumGenerator = Math.round(Math.random() * 150)
+        let canPeckUsers = true;
+        let canPeckServers = true
+        const thing = await globalModel.findOne({}).exec()
+        const array1 = thing.blacklistPeckUsers
+        const thing2 = await globalModel.findOne({}).exec()
+        const array2 = thing2.blacklistedPeckGuilds
+        if (array1.includes(msg.member?.id)){canPeckUsers = false}
+        if (array2.includes(msg.guildID)){canPeckServers = false}
         //@ts-ignore
-        if(blacklistPeck.includes(msg.channel.guild.id)){canPeck = false;}
-        if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150 || randomNumGenerator === 175 || randomNumGenerator === 200) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
+        if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckUsers && canPeckServers){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
         handleCommand(msg, this);
     }
 }
@@ -198,6 +206,7 @@ async function _prefixHandle(msg: Message, jerry: Jerry){
     }
 
     //test for a guild's normal prefix
+    
     if(msg.content.toLowerCase().startsWith(config.prefix)){
         const args = msg.content.split(" ").slice(3);
         const cmdLabelar = msg.content.split(" ").slice(2, 3);
