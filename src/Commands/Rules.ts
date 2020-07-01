@@ -25,9 +25,10 @@ class Rules extends command {
                     text: "Rules", 
                     icon_url: jerry.user.avatarURL
                 }, 
-                description: "1. Don't be a dick.\n2. No NSFW.\n3. Follow the Discord Terms of Service and Community Guidelines."
+                description: "**1.** Don't be a dick.\n\n**2.** No NSFW.\n\n**3.** Follow the Discord Terms of Service and Community Guidelines."
             }, 
-            color: jerry.defaultColor
+            color: 14460415, 
+            timestamp: new Date
         }
         //@ts-ignore
         jerry.createMessage("722659905542291487", data)
