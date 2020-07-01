@@ -7,8 +7,8 @@ const config = require("../../config.json");
 class Roles extends command {
     constructor() {
         super({})
-        this.name = "info"
-        this.aliases = ["jerry-info"]
+        this.name = "roles"
+        this.aliases = ["jerry-roles"]
         this.alwaysEnabled = true;
         this.id = this.name;
         this.requiredUsers = ["253233185800847361", "344954369285947392", "489989456175300618"]
