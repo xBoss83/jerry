@@ -6,7 +6,7 @@ class Roles extends Command_1.command {
     constructor() {
         super({});
         this.name = "roles";
-        this.aliases = ["jerry-roles"];
+        this.aliases = ["jerry-rules"];
         this.alwaysEnabled = true;
         this.id = this.name;
         this.requiredUsers = ["253233185800847361", "344954369285947392", "489989456175300618"];
@@ -24,7 +24,8 @@ class Roles extends Command_1.command {
                 },
                 description: "<@&720385882158399498> Me, I am king.\n\n<@&722656917188509696> Jerry's developers\n\n<@&722661381316280321> Jerry Staff\n\n<@&722660901546754129> Other bots"
             },
-            color: jerry.defaultColor
+            color: 14460415,
+            timestamp: new Date
         };
         //@ts-ignore
         jerry.createMessage("722659905542291487", data);
