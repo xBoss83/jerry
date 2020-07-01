@@ -22,10 +22,10 @@ class Roles extends Command_1.command {
                     text: "Server Roles",
                     icon_url: jerry.user.avatarURL
                 },
-                description: "<@&720385882158399498> Me, I am king.\n\n<@&722656917188509696> Jerry's developers\n\n<@&722661381316280321> Jerry Staff\n\n<@&722660901546754129> Other bots"
-            },
-            color: 14460415,
-            timestamp: new Date
+                description: "<@&720385882158399498> Me, I am king.\n\n<@&722656917188509696> Jerry's developers\n\n<@&722661381316280321> Jerry Staff\n\n<@&722660901546754129> Other bots",
+                color: 14460415,
+                timestamp: new Date
+            }
         };
         //@ts-ignore
         jerry.createMessage("722659905542291487", data);

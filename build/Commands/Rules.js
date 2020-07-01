@@ -22,10 +22,10 @@ class Rules extends Command_1.command {
                     text: "Rules",
                     icon_url: jerry.user.avatarURL
                 },
-                description: "**1.** Don't be a dick.\n\n**2.** No NSFW.\n\n**3.** Follow the Discord Terms of Service and Community Guidelines."
-            },
-            color: 14460415,
-            timestamp: new Date
+                description: "**1.** Don't be a dick.\n\n**2.** No NSFW.\n\n**3.** Follow the Discord Terms of Service and Community Guidelines.",
+                color: 14460415,
+                timestamp: new Date
+            }
         };
         //@ts-ignore
         jerry.createMessage("722659905542291487", data);
