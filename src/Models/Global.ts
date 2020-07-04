@@ -6,6 +6,10 @@ const GlobalModel = new mongoose.Schema({
         type: Array, 
         default: []
     }, 
+    blacklistedUsers: { 
+        type: Array, 
+        default: []
+    }
 })
 
 module.exports = mongoose.model("Global DB | Jerry", GlobalModel)

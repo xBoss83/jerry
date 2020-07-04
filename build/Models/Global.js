@@ -9,5 +9,9 @@ const GlobalModel = new mongoose_1.default.Schema({
         type: Array,
         default: []
     },
+    blacklistedUsers: {
+        type: Array,
+        default: []
+    }
 });
 module.exports = mongoose_1.default.model("Global DB | Jerry", GlobalModel);

@@ -12,6 +12,7 @@ class ReadyHandler {
     }
 
     async handle(this: Jerry): Promise<void> {
+        
         this.editStatus("online", {name: "in the pool!", type: 0})
         this.executeWebhook('722663407743926303', config.readyWebhook, {
             embeds: [
