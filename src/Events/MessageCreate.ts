@@ -18,7 +18,7 @@ class MessageCreateHandler{
         let canPeckUsers = true;
         let canPeckServers = true
         const array2 = ["264445053596991498"]
-        if (array2.includes(msg.guildID)){canPeckServers = false}
+        if (array2.includes(msg.guildID!)){canPeckServers = false}
         //@ts-ignore
         if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
         handleCommand(msg, this);
