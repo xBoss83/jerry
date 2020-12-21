@@ -17,23 +17,10 @@ class MessageCreateHandler{
         const randomNumGenerator = Math.round(Math.random() * 150)
         let canPeckUsers = true;
         let canPeckServers = true
-        const thing2 = await globalModel.findOne({}).exec()
-        const array2 = thing2.blacklistedPeckGuilds
+        const array2 = ["264445053596991498"]
         if (array2.includes(msg.guildID)){canPeckServers = false}
         //@ts-ignore
         if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
-        const randomNumGenerator = Math.round(Math.random() * 200)
-        let canPeck = true;
-        const blacklistPeck = ["264445053596991498"];
-        //@ts-ignore
-        if(blacklistPeck.includes(msg.channel.guild.id)){canPeck = false;}
-        if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150 || randomNumGenerator === 175 || randomNumGenerator === 200) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
-        const randomNumGenerator = Math.round(Math.random() * 200)
-        let canPeck = true;
-        const blacklistPeck = ["264445053596991498"];
-        //@ts-ignore
-        if(blacklistPeck.includes(msg.channel.guild.id)){canPeck = false;}
-        if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150 || randomNumGenerator === 175 || randomNumGenerator === 200) && canPeck){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
         handleCommand(msg, this);
     }
 }
