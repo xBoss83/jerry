@@ -99,7 +99,8 @@ export class Jerry extends Client {
         mongoose.connect(`${config.mongodbLogin}`, { 
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useFindAndModify: true
+            useFindAndModify: true,
+            dbName: "jerry"
         });
         mongoose.connection.on("error", () => { 
             this.logger.error("Jerry", "Failed to connect to MongoDB")
