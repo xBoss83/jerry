@@ -3,6 +3,7 @@ import {Message, Member, TextChannel} from "eris";
 import {command} from "../Command";
 import {ICommandContext} from "../types";
 import { jerrys } from "../Commands/JerryPic";
+//@ts-ignore
 import globalModel from "../Models/Global"; 
 const config = require('../../config.json'); 
 
