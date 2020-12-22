@@ -3,7 +3,7 @@ import {Message, Member, TextChannel} from "eris";
 import {command} from "../Command";
 import {ICommandContext} from "../types";
 import { jerrys } from "../Commands/JerryPic";
-import model from "../Models/Global";
+import globalModel from "../Models/Global"; 
 const config = require('../../config.json'); 
 
 class MessageCreateHandler{
@@ -18,8 +18,8 @@ class MessageCreateHandler{
         const randomNumGenerator = Math.round(Math.random() * 150)
         let canPeckUsers = true;
         let canPeckServers = true;
-        const data = await model.findOne({}).exec();
-        const array2 = (model as any)?.blacklistedPeckGuilds ?? ["264445053596991498"];
+        const data = await globalModel.findOne({}).exec();
+        const array2 = (data as any)?.blacklistedPeckGuilds ?? ["264445053596991498"];
         if (array2.includes(msg.guildID!)){canPeckServers = false}
         //@ts-ignore
         if((randomNumGenerator === 25 || randomNumGenerator === 50 || randomNumGenerator === 75 || randomNumGenerator === 100 || randomNumGenerator === 125 || randomNumGenerator === 150) && canPeckServers){msg.channel.createMessage(`GET PECKED ${msg.author.mention}!`)}
